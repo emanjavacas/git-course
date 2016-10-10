@@ -19,5 +19,6 @@
 - [GitHub Desktop](https://desktop.github.com/), MacOS, Windows, (no Linux support). Barebones git.
 - [GitKraken](https://www.gitkraken.com/), MacOS, Windows, Linux. More complete in terms of features.
 - Embedded in your text editor (via plugins, etc.):
-  - [Sublime Text Git](https://github.com/kemayo/sublime-text-git), access through common git commands through an embedded command line.
-  - [Magit for Emacs](https://magit.vc/), extremely handy (if you use Emacs).
+  - [Sublime Text: GitSavvy](https://github.com/divmain/GitSavvy), text based interface to git. Quite complete.
+  - [Sublime Text: Git](https://github.com/kemayo/sublime-text-git), access to git through an embedded command line. Very thin wrapper.
+  - [Magit for Emacs](https://magit.vc/), extremely handy - if you use Emacs :-).
