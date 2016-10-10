@@ -1,0 +1,174 @@
+#+Title: Git Tutorial
+#+Author: Enrique Manjavacas
+#+Date: 14/10/2016
+#+Link: https://emanjavacas.github.com/slides/git-course
+
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
+#+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:t
+#+OPTIONS: reveal_width:1200 reveal_height:800
+#+OPTIONS: toc:2
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: nil
+#+REVEAL_THEME: league
+#+REVEAL_HLEVEL: 1
+#+REVEAL_EXTRA_CSS: ./extra_git.css
+
+* Getting started
+
+#+attr_reveal: :frag (roll-in)
+- This is [[https://emanjavacas.github.io][me]].
+
+- And these are [[https://www.github.com/emanjavacas/git-course][materials for the course]].
+
+** Get git
+
+Follow the instructions for your OS [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][here]].
+
+** [Optionally/Alternatively] install a Git client 
+
+See [[https://www.github.com/emanjavacas/git-course][Materials for the course]] for links to different possibilities.
+
+* About Git
+
+** What is git?
+
+"Git is a free and *open source distributed version control system* designed to handle everything from small to very large projects with speed and efficiency" ([[https://en.wikipedia.org/wiki/Git_%28software%29][Wikipedia]])
+   
+#+REVEAL: split
+
+A Version Control System (VCS) is a methodology or tool that...
+
+#+attr_reveal: :frag (roll-in)
+ - helps you *keep track of changes* you make to the files in your project
+ - and allows you to *communicate and synchronize your changes* with other people.
+   # 
+
+*** History
+
+#+attr_reveal: :frag (roll-in)
+- Developed by Linux Torvalds as a means to enable the development of the Linux Kernel     
+  #+attr_reveal: :frag (roll-in)
+  - [[https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds][Interview with occassion of Git's 10th Year Anniversary]]
+  - Inspired by BitKeeper (Distributed VCS that isn't open source)
+
+- Relatively recent in the ecosystem of VCS tools
+  #+attr_reveal: :frag (roll-in)
+  - [[https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290][First git's commit 2005]]
+  - Its main feature being that it is a *distributed* system
+
+# Originally, these repositories were accessible only if you were logged
+# directly into the machines they were stored on. tools such as CVS, and
+# later Subversion, were created. They allowed developers to work remotely
+# from the repository and send their changes back using a network connection.
+
+# These systems follow a centralized repository model. That means there
+# is one central repository that everyone sends their changes to. Each
+# developer keeps a copy of the latest version of the repository, and when-
+# ever they make a change to it, they send that change back to the main
+# repository.
+
+# Instead of having one central repository that
+# you and everyone else on your team sends changes to, you each have
+# your own repository that has the entire history of the project. Making
+# a commit doesn’t involve connecting to a remote repository; the change
+# is recorded in your local repository.
+
+# Developers can have access to send the changes directly to the main
+# repository (an action called pushing in Git), or they might have to
+# submit patches, which are small sets of changes, to the project's maintainer
+# and have them update the main repository.
+
+# A centralized system is like having one bank that every developer on your team uses.
+# A distributed system is like each developer having their own personal bank.
+
+# Differences:
+# ------------
+# No need of internet connection for development
+# Easy branching
+# No need to set commit access policies
+
+*** Why you need it?
+
+ #+attr_reveal: :frag (roll-in)
+ - Because it is used by instructors in the study programme.
+ - Because the need for collaborative tools is increasing and VCS are most powerful.
+
+*** VCS vs. Collaborative Text Editors (GoogleDocs, etc.)
+
+Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
+
+#+REVEAL: split
+*Collaborative Text Editors*
+#+attr_reveal: :frag (roll-in)
+- Pros
+  #+attr_reveal: :frag (roll-in)
+  - Fast, real-time incorporation of changes.
+
+- Cons
+  #+attr_reveal: :frag (roll-in)
+  - Impossible to work offline
+  - No guarantees that change history reflects the real sequence of changes
+
+#+REVEAL: split
+*VCS*
+#+attr_reveal: :frag (roll-in)
+- Pros
+  #+attr_reveal: :frag (roll-in)
+  - Documented change history
+  - Unlimited in terms of participants
+
+- Cons
+  #+attr_reveal: :frag (roll-in)
+  - Steep learning curve
+
+*** Take-away message
+
+    Trade-off between and simplicity.
+    #+BEGIN_NOTES
+    Currently, we are mostly at one very end.
+    #+END_NOTES
+
+** What is not `git`?
+
+*** Git vs GitHub
+
+#+attr_reveal: :frag (roll-in)
+- "GitHub is a web-based *Git repository hosting service*, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ([[https://en.wikipedia.org/wiki/GitHub][Wikipedia]]) (but there are others, see BitBucket).
+
+*** A backup system
+
+#+attr_reveal: :frag (roll-in)
+- While you could use git/GitHub for backing up, it cannot handle large/binary files very well.
+
+* Basic Git Concepts
+
+** Objects
+
+*** Repository
+
+*** Working Tree
+
+*** Commit
+
+*** Branch
+
+** Commands
+
+*** git init
+
+*** git clone
+
+*** git add
+
+*** git git commit
+
+*** git push
+
+*** git pull
+
+*** git checkout
+
+* Git Flow
+
