@@ -1,3 +1,5 @@
+# -*- after-save-hook: org-reveal-export-to-html; org-export-in-background: t; -*-
+
 #+Title: Git Tutorial
 #+Author: Enrique Manjavacas
 #+Date: 14/10/2016
@@ -6,7 +8,7 @@
 #+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
 #+OPTIONS: reveal_rolling_links:t reveal_keyboard:t reveal_overview:t num:t
 #+OPTIONS: reveal_width:1200 reveal_height:800
-#+OPTIONS: toc:2
+#+OPTIONS: toc:2 timestamp:nil
 #+REVEAL_MARGIN: 0.1
 #+REVEAL_MIN_SCALE: 0.5
 #+REVEAL_MAX_SCALE: 2.5
@@ -29,6 +31,7 @@ Follow the instructions for your OS [[https://git-scm.com/book/en/v2/Getting-Sta
 ** [Optionally/Alternatively] install a Git client 
 
 See [[https://www.github.com/emanjavacas/git-course][Materials for the course]] for links to different possibilities.
+
 
 * About Git
 
@@ -56,7 +59,7 @@ A Version Control System (VCS) is a methodology or tool that...
 - Relatively recent in the ecosystem of VCS tools
   #+attr_reveal: :frag (roll-in)
   - [[https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290][First git's commit 2005]]
-  - Its main feature being that it is a *distributed* system
+  - Its main feature being that it is a *distributed* or *decentralized* system
 
 # Originally, these repositories were accessible only if you were logged
 # directly into the machines they were stored on. tools such as CVS, and
@@ -130,9 +133,9 @@ Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
     Currently, we are mostly at one very end.
     #+END_NOTES
 
-** What is not `git`?
+** What is not ~git~?
 
-*** Git vs GitHub
+*** ~git~ vs GitHub
 
 #+attr_reveal: :frag (roll-in)
 - "GitHub is a web-based *Git repository hosting service*, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ([[https://en.wikipedia.org/wiki/GitHub][Wikipedia]]) (but there are others, see BitBucket).
@@ -140,35 +143,86 @@ Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
 *** A backup system
 
 #+attr_reveal: :frag (roll-in)
-- While you could use git/GitHub for backing up, it cannot handle large/binary files very well.
+- While you could use ~git~/GitHub for backing up, it *cannot handle large/binary files very well*.
 
 * Basic Git Concepts
 
-** Objects
+Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
+# Double indent to avoid showing up in toc
 *** Repository
+    All git-tracked files in your project plus the full history of changes (commits and branches).
 
-*** Working Tree
+#+reveal: split
+**** Types of Repository
+     #+attr_reveal: :frag (roll-in)
+     - *Local*
+       Repository hosted in your current machine, to which you can make changes.
+     - *Remote*
+       Repository hosted in a different machine, to which you have access from your current machine.
 
 *** Commit
+    A snapshot including changes to previous states of the repository.
 
 *** Branch
+    Any of the parallel states in the repository (a particular commit history).
 
-** Commands
+*** Working Tree
+    Your current view of the project. You can always switch to a previous state of the project (state after a given commit), or a parallel state of the project (branch).
 
-*** git init
+#+reveal: split
+   - Statuses:
+     - Clean: Up to date with git internal change log.
+     - Dirty: Changes in your local copy are not tracked yet.
 
-*** git clone
+   - How to change the working tree:
+     - Making a change & commiting
+     - Moving to another (possibly new) branch (A.K.A. ~checkout~)
+     - etc...
 
-*** git add
+* Hands-on Tutorial
 
-*** git git commit
+** Create your own repository
+# Objective: initialize a repository, and set a remote on GitHub
+For this tutorial, we are going to create a (very basic) resume homepage.
 
-*** git push
+#+REVEAL: split
+First we need Download a template
 
-*** git pull
+#+attr_reveal: :frag (roll-in)
+- Google for `free html resume template`
+- Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
+- Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
 
-*** git checkout
+*** Create the remote repository (GitHub)
 
-* Git Flow
+...
 
+*** Using the Command Line
+
+**** Initialize the repository
+
+#+attr_reveal: :frag (roll-in)
+~git init~
+
+**** Set the remote
+~git remote add origin /path/to/remote/repo/~
+
+*** Using GitHub Desktop
+Snapshot
+
+**** Create a repository
+
+** Commit changes
+# Objective: Do some local changes, commit and push
+
+** Merging
+# Objective: automerging, manual merging from the remote
+
+** Branching
+# Creating a branch, and merging branches
+
+* Goodie
+
+- If you change the name of your repository to ~username.github.io~, you can get your own personal page served by GitHub
+- More info about GitHub Pages [[https://pages.github.com/][here]].

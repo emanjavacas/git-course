@@ -24,7 +24,11 @@
   - [Sublime Text: GitSavvy](https://github.com/divmain/GitSavvy), text based interface to git. Quite complete.
   - [Sublime Text: Git](https://github.com/kemayo/sublime-text-git), access to git through an embedded command line. Very thin wrapper.
   - [Magit for Emacs](https://magit.vc/), extremely handy - if you use Emacs :-).
+  
+  
+### Cheatsheets ###
 
+- [GitHub Training Cheatsheet](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
 
 ## Git Concepts ##
 ---
@@ -43,7 +47,6 @@ A snapshot including changes to previous states of the repository.
 #### Branch ####
 Any of the parallel states in the repository (a particular commit history).
 
-### Command level ###
 
 
 
