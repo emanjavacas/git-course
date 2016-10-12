@@ -1,4 +1,4 @@
-# -*- after-save-hook: org-reveal-export-to-html; org-export-in-background: t; -*-
+# -*- after-save-hook: org-reveal-export-to-html; -*-
 
 #+Title: Git Tutorial
 #+Author: Enrique Manjavacas
@@ -100,7 +100,28 @@ A Version Control System (VCS) is a methodology or tool that...
 
 *** VCS vs. Collaborative Text Editors (GoogleDocs, etc.)
 
-Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
+#+BEGIN_NOTES
+Check how many actually think Google-Docs/Dropbox is a good solution to version mananagement? 
+This section can be skipped if the audience is already convinced of the answer (NO).
+#+END_NOTES
+
+#+reveal: split
+#+BEGIN_HTML
+<img src="./img/dropbox.png" style="margin-top: -100px">
+#+END_HTML
+
+[[https://www.dropbox.com/en/help/36][Source: Dropbox Help]]
+
+#+reveal: split
+
+Synchronized vs Asynchronized Solution to the problem of collaborative editing.
+
+#+reveal: split
+#+BEGIN_QUOTE
+"A practice by which dispersed users are able to concurrently modify shared artifacts 
+with the guarantee that changes by different users will not automatically overwrite each other" 
+(Altmanninger et al. 2009)
+#+END_QUOTE
 
 #+REVEAL: split
 *Collaborative Text Editors*
@@ -135,7 +156,11 @@ Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
 
 ** What is not ~git~?
 
-*** ~git~ vs GitHub
+    #+attr_reveal: :frag (roll-in)
+    - Trade-off between rigor (data-side) and easiness (UX-side).
+    - Most users are limited to one very end.
+    
+*** git vs GitHub
 
 #+attr_reveal: :frag (roll-in)
 - "GitHub is a web-based *Git repository hosting service*, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ([[https://en.wikipedia.org/wiki/GitHub][Wikipedia]]) (but there are others, see BitBucket).
@@ -143,15 +168,22 @@ Synchronized vs Asynchronized Solutions to the problem of collaborative editing.
 *** A backup system
 
 #+attr_reveal: :frag (roll-in)
-- While you could use ~git~/GitHub for backing up, it *cannot handle large/binary files very well*.
+- While you could use git/GitHub for backing up, it *cannot handle large/binary files very well*.
 
 * Basic Git Concepts
 
 Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
+#+BEGIN_HTML
+<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">See <a src="https://www.github.com/emanjavacas/git-course">the repository README</a> for a glossary of terms</p>
+#+END_HTML
+
 # Double indent to avoid showing up in toc
 *** Repository
-    All git-tracked files in your project plus the full history of changes (commits and branches).
+    #+BEGIN_NOTES
+    Repositories are always a copy
+    #+END_NOTES
+    All tracked files in your project plus the full history of changes (commits and branches).
 
 #+reveal: split
 **** Types of Repository
@@ -161,33 +193,39 @@ Let's introduce a bit of vocabulary (Last bit of me talking alone!)
      - *Remote*
        Repository hosted in a different machine, to which you have access from your current machine.
 
+*** Working Tree (or directory)
+    #+attr_reveal: :frag (roll-in)
+    - Current local view of the project (folder).
+    - It can be:
+      #+attr_reveal: :frag (roll-in)
+      - "clean" (Up to date with the tracked version)
+      - "dirty" (Local changes haven't been registered yet)
+
+    #+reveal: split
+
+    Ways to change the working tree:
+    #+attr_reveal: :frag (roll-in)
+     - Switch back to a previous state of the project (revert)
+     - Add a change to the current state (commit)
+     - Moving to another (possibly new) branch (A.K.A. ~checkout~)
+     - Move to a "future" state of the project (e.g. pulling from remote changes)
+
 *** Commit
     A snapshot including changes to previous states of the repository.
 
 *** Branch
     Any of the parallel states in the repository (a particular commit history).
 
-*** Working Tree
-    Your current view of the project. You can always switch to a previous state of the project (state after a given commit), or a parallel state of the project (branch).
-
-#+reveal: split
-   - Statuses:
-     - Clean: Up to date with git internal change log.
-     - Dirty: Changes in your local copy are not tracked yet.
-
-   - How to change the working tree:
-     - Making a change & commiting
-     - Moving to another (possibly new) branch (A.K.A. ~checkout~)
-     - etc...
-
 * Hands-on Tutorial
 
 ** Create your own repository
 # Objective: initialize a repository, and set a remote on GitHub
+# Situation: single
+
 For this tutorial, we are going to create a (very basic) resume homepage.
 
 #+REVEAL: split
-First we need Download a template
+First we need to download a template
 
 #+attr_reveal: :frag (roll-in)
 - Google for `free html resume template`
@@ -196,31 +234,78 @@ First we need Download a template
 
 *** Create the remote repository (GitHub)
 
-...
+#+BEGIN_HTML
+<img src="./img/new_repo.png">
+#+END_HTML
 
-*** Using the Command Line
+*** Set local repository to track remote repository
 
-**** Initialize the repository
+**** Using the Command Line
 
-#+attr_reveal: :frag (roll-in)
-~git init~
+***** Initialize the repository
+ #+BEGIN_SRC bash
+ $ git init
+ Initialized empty Git repository in /home/enrique/Documents/courses/git/resume
+ #+END_SRC
 
-**** Set the remote
-~git remote add origin /path/to/remote/repo/~
+***** Set the remote
+ #+BEGIN_SRC bash
+ $ git remote add origin https://github.com/emanjavacas/resume.git
+ #+END_SRC
 
-*** Using GitHub Desktop
-Snapshot
+**** Using GitHub Desktop
 
-**** Create a repository
+Screenshot
 
 ** Commit changes
 # Objective: Do some local changes, commit and push
+# Situation: single
+# Workflow: - Modify info - commit - push; modify font-size, add new background img, modify css for new img - commits - push;
 
-** Merging
-# Objective: automerging, manual merging from the remote
+#+reveal: split
+#+BEGIN_HTML
+<iframe width="300px" height="600px" src="flow.html"></iframe>
+#+END_HTML
+
+*** Single commit
+#+attr_reveal: :frag (roll-in)
+- Modify info
+- Git flow (add, commit)
+- Push
+
+*** Multiple commits
+    #+BEGIN_NOTES
+    More realistic setup, 
+    #+END_NOTES
+
+#+attr_reveal: :frag (roll-in)
+- Modify font-size
+- Git flow (add, commit)
+- Push
 
 ** Branching
 # Creating a branch, and merging branches
+# Situation: single
+# Workflow: New branch for a new feat (TODO) -> git flow
+
+** Merging
+*** Merging from local branch
+# Objective: merging is just a commit, familiarize with the merging tool/syntax
+# Situation: single
+# Workflow: ...
+
+*** Merging a pull request
+# Objective: automerging, manual merging from a remote
+# Situation: couples, forking from each other, submitting pull requests, merging
+# Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
+
+** Revert
+
+# Objective: learn how to revert pushed commits (revert) and uncommited changes (stash)
+  # see http://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit/4114122#4114122
+  # for an explanation of revert workflows in three different scenarios
+# Situation: single
+# Workflow: ...
 
 * Goodie
 
