@@ -90,13 +90,23 @@ See Cheatsheets for the moment.
 ---
 
 ## 3.1. `.gitignore`
-TODO (general intro)
+A `.gitignore` file in the top directory of your project tells git to ignore files that match the expression in it.
+- Example file: 
+  ```
+  *~        # ignore emacs wip files
+  .*        # ignore hidden files
+  /build    # ignore /build dir (and everything in it)
+  ```
 
 ### 3.1.1. Excluding subfolders but including subsubfolders
-TODO (remember syntax for this)
+- Ignore /doc directory, but include tree rooted at /doc/img
+
+```
+/doc/*
+!/doc/img
+```
 
 ## 3.2. Config ##
-
 
 ### 3.2.1. Global ###
 ``` bash
@@ -106,6 +116,7 @@ git config --global core.editor /usr/bin/emacs
 ```
 
 ### 3.2.2. Local ###
+
 
 #### 3.2.2.1. Editing `./git/config`
 TODO
@@ -124,9 +135,14 @@ TODO
   
 ## 4.2. Get downloadable zip or tar files for your project ##
 
-### 4.2.1. From GitHub ###
+### 4.2.1. From the command line ###
 
-- Create a tag for the commit you want a downloadable 
+- Create a tag for the commit you want a downloadable (and push it)
 
-### 4.2.2. From the command line ###
+    ``` bash
+    git tag v0.0
+    git push origin v0.0
+    ```
+- Your zip file is now accessible from `https://www.github.com/username/repo/archive/v0.0.zip`
+- Your tarball is now accessible from `https://www.github.com/username/repo/tarball/v0.0`
 
