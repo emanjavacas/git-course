@@ -107,7 +107,7 @@ This section can be skipped if the audience is already convinced of the answer (
 
 #+reveal: split
 #+BEGIN_HTML
-<img src="./img/dropbox.png" style="margin-top: -100px">
+<img class="stretch" src="./img/dropbox.png">
 #+END_HTML
 
 [[https://www.dropbox.com/en/help/36][Source: Dropbox Help]]
@@ -149,21 +149,20 @@ with the guarantee that changes by different users will not automatically overwr
 
 *** Take-away message
 
-    Trade-off between and simplicity.
-    #+BEGIN_NOTES
-    Currently, we are mostly at one very end.
-    #+END_NOTES
-
-** What is not ~git~?
-
     #+attr_reveal: :frag (roll-in)
     - Trade-off between rigor (data-side) and easiness (UX-side).
     - Most users are limited to one very end.
+
+** What is not ~git~?
     
 *** git vs GitHub
+#+BEGIN_QUOTE
+"GitHub is a web-based *Git repository hosting service*, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ([[https://en.wikipedia.org/wiki/GitHub][Wikipedia]])
+#+END_QUOTE
 
-#+attr_reveal: :frag (roll-in)
-- "GitHub is a web-based *Git repository hosting service*, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features." ([[https://en.wikipedia.org/wiki/GitHub][Wikipedia]]) (but there are others, see BitBucket).
+#+BEGIN_HTML
+<p style="font-size: 0.75em; margin: 200px 200px 0 0; text-align: right;">but there are others, see BitBucket</p>
+#+END_HTML
 
 *** A backup system
 
@@ -242,7 +241,8 @@ Sync locally (set a local to track the remote)
 #+END_HTML
 
 #+reveal: split
-- Initialize the repository
+Initialize the repository
+
   #+BEGIN_SRC bash
   $ git init
 
@@ -250,7 +250,8 @@ Sync locally (set a local to track the remote)
   #+END_SRC
 
 #+reveal: split
-- Track the remote
+Track the remote
+
   #+BEGIN_SRC bash
   $ git remote add origin https://github.com/emanjavacas/resume.git
   #+END_SRC
@@ -284,21 +285,19 @@ Sync locally (set a local to track the remote)
 # Workflow: - Modify info - commit - push
 
 #+reveal: split
-- The git workflow
+The git workflow
 
 #+BEGIN_HTML
-<div style="height:900px;">
-<iframe src="flow.html" style="min-width:400px;height:100%;"></iframe>
-</div>
+<iframe class="stretch" src="flow.html" style="align: middle;" width="600px"></iframe>
 #+END_HTML
 
 #+reveal: split
-- Make edit 
+Make edit 
 
 [[./img/commit_edit.png]]
 
 #+reveal: split
-- Checking the status of the Working Tree
+Checking the status of the Working Tree
 
 #+BEGIN_SRC bash
 $ git status
@@ -315,53 +314,53 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #+END_SRC
 
 #+reveal: split
-- Diffing
+Diffing
 
 [[./img/commit_edit_diff_gh.png]]
 
 *** From the command line
 
 #+reveal: split
-- Add (stage)
+Add (stage)
 
-#+BEGIN_SRC bash
-$ git add index.html
-#+END_SRC
-
-#+reveal: split
-- Commit
-
-#+BEGIN_SRC bash
-$ git commit -m "Changed name"
-
-[master 9a23987] Changed name
- 1 file changed, 2 insertions(+), 2 deletions(-)
-#+END_SRC
+  #+BEGIN_SRC bash
+  $ git add index.html
+  #+END_SRC
 
 #+reveal: split
-- Push
+Commit
 
-#+BEGIN_SRC bash
-$ git push
+  #+BEGIN_SRC bash
+  $ git commit -m "Changed name"
 
-Counting objects: 3, done.
-Delta compression using up to 2 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (3/3), 395 bytes | 0 bytes/s, done.
-Total 3 (delta 2), reused 0 (delta 0)
-remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
-To https://github.com/emanjavacas/resume.git
-   eb6121f..9a23987  master -> master
-#+END_SRC
+  [master 9a23987] Changed name
+    1 file changed, 2 insertions(+), 2 deletions(-)
+  #+END_SRC
+
+#+reveal: split
+ Push
+
+  #+BEGIN_SRC bash
+  $ git push
+  
+  Counting objects: 3, done.
+  Delta compression using up to 2 threads.
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (3/3), 395 bytes | 0 bytes/s, done.
+  Total 3 (delta 2), reused 0 (delta 0)
+  remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+  To https://github.com/emanjavacas/resume.git
+    eb6121f..9a23987  master -> master
+  #+END_SRC
 
 *** From GitHub Desktop
 #+reveal: split
-- Add (stage) & Commit
+Add (stage) & commit
 
 [[./img/add_commit_gh.png]]
 
 #+reveal: split
-- Push (sync)
+Push (sync)
 
 [[./img/sync_commit_gh.png]]
 
@@ -382,11 +381,12 @@ More realistic setup, choose what to include in each commit separatedly
 #+END_NOTES
 
 #+reveal: split
-- Make changes to multiple files
+Make changes to multiple files
 
 [[./img/commits_edit.png]]
 
 #+reveal: split
+Check the changes
 
 #+BEGIN_SRC bash
 $ git status
@@ -404,8 +404,8 @@ Changes not staged for commit:
 
 *** From the command line
 
-#+attr_reveal: :frag (roll-in)
-- Git flow (add, commit)
+#+reveal: split
+Git flow (add, commit)
   #+attr_reveal: :frag (roll-in)
   - Add email update
     #+BEGIN_SRC bash
@@ -422,7 +422,7 @@ Changes not staged for commit:
     #+END_SRC
 
 #+reveal: split
-- Push
+Push
 
 #+BEGIN_SRC bash
 $ git push
@@ -440,16 +440,16 @@ To https://github.com/emanjavacas/resume.git
 
 *** From GitHub Desktop
 
-- Add (stage) & Commit
-
 #+reveal: split
+Add (stage) & commit
 [[./img/add_mail_commit.png]]
 
 #+reveal: split
+Add (stage) & commit multiple changes
 [[./img/add_multiple_commit.png]]
 
 #+reveal: split
-- Push
+Push both commits
 
 [[./img/multiple_commited_gh.png]]
 
@@ -475,8 +475,8 @@ We are going to edit the content in the "resume" tab
 
 *** From the command line
 
-#+attr_reveal: :frag (roll-in)
-- Create a new branch
+#+reveal: split
+Create a new branch
   #+attr_reveal: :frag (roll-in)
   - Long version
     #+attr_reveal: :frag (roll-in)
@@ -496,7 +496,8 @@ We are going to edit the content in the "resume" tab
     #+END_SRC
 
 #+reveal: split
-- See which branches are there
+See which branches are there
+
   #+BEGIN_SRC bash
   $ git branch -v
   
@@ -505,7 +506,8 @@ We are going to edit the content in the "resume" tab
   #+END_SRC
 
 #+reveal: split
-- Switch to a particular branch (magic!)
+ Switch to a particular branch (magic!)
+
   #+BEGIN_SRC bash
   $ git checkout master
 
@@ -515,15 +517,18 @@ We are going to edit the content in the "resume" tab
 *** From GitHub Desktop
 
 #+reveal: split
-- Create a branch
+Create a branch
+
 [[./img/new_branch_gh.png]]
 
 #+reveal: split
-- See all branches
+See all branches
+
 [[./img/branches_gh.png]]
 
 #+reveal: split
-- Select a branch
+Select a branch
+
 [[./img/switch_to_branch_gh.png]]
 
 *** Your turn
@@ -531,11 +536,14 @@ We are going to edit the content in the "resume" tab
 #+attr_reveal: :frag (roll-in)
 - Create a branch (give it the name you prefer)
 - Switch to it (if you are not there yet)
-- Make local changes (as shown previously) & Commit
+- Make local changes (as shown previously) & commit
 
 #+reveal: split
-- Example of changes:
-[[./img/branch_changes_gh.png]]
+Example of changes
+
+#+BEGIN_HTML
+<img src="./img/branch_changes_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 #+attr_reveal: :frag (roll-in)
@@ -548,8 +556,9 @@ We are going to edit the content in the "resume" tab
 # Workflow: ...
 
 *** From the command line
-#+attr_reveal: :frag (roll-in)
-- Compare branches
+#+reveal: split
+Compare branches
+
   #+BEGIN_SRC bash
   $ git diff resume master
   #+END_SRC
@@ -558,7 +567,8 @@ We are going to edit the content in the "resume" tab
 [[./img/diff_branches.png]]
 
 #+reveal: split
-- Merge target branch (resume) into receiving branch (master)
+Merge target branch (resume) into receiving branch (master)
+
   #+attr_reveal: :frag (roll-in)
   - Switch to receiving branch (master)
     #+BEGIN_SRC bash
@@ -578,26 +588,27 @@ We are going to edit the content in the "resume" tab
   - Push
     #+BEGIN_SRC bash
     $ git push
-
-    
     #+END_SRC
 
 *** From GitHub Desktop
 
 #+reveal: split
-- Switch to target branch (in our case, master)
+Switch to target branch (in our case, master)
+
 [[./img/switch_to_master_gh.png]]
 
 #+reveal: split
-- Select "merge from resume"
+Select "merge from resume"
+
 [[./img/merge_from_resume_gh.png]]
 
 #+reveal: split
-- A Merge is just a commit
+A Merge is just a commit
+
 [[./img/merge_commit_gh.png]]
 
 #+reveal: split
-- Push (Sync)
+Push (Sync)
 
 *** Your turn
 #+attr_reveal: :frag (roll-in)
@@ -614,8 +625,9 @@ We are going to edit the content in the "resume" tab
 Merging locally is very useful but is not the only type of merge
 #+END_NOTES
 
-#+attr_reveal: :frag (roll-in)
-- Merges are not restricted to local branches. You can also merge:
+#+reveal: split
+Merges are not restricted to local branches. You can also merge:
+
   #+attr_reveal: :frag (roll-in)
   - A branch in your remote (an "origin" branch)
   - A branch in someone else's remote - fork source project (an "upstream" branch).
@@ -625,13 +637,15 @@ Merging locally is very useful but is not the only type of merge
 Now you are going to merge a pull request that your colleague is going to submit.
 
 *** Your turn
-
 #+reveal: split
 Fork your colleague's project and clone it locally
+
 [[./fork_gh.png]]
 
 #+reveal: split
 Introduce (conspicuous) typos in your index.html file (push them too)
+
+[[./]]
 
 #+reveal: split
 Diff your local fork from the upstream to see the typos
@@ -646,19 +660,24 @@ Issue a pull request
 Merge your colleague's pull request into your master branch
 
 
+
+
+
 ** Revert
 # Objective: learn how to revert pushed commits (revert) and uncommited changes (stash)
   # see http://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit/4114122#4114122
   # for an explanation of revert workflows in three different scenarios
 # Situation: single
 # Workflow: ...
-*** From GitHub Desktop
 
+*** From GitHub Desktop
 
 #+BEGIN_NOTES
 Revert is an operation that is less common than what you might think.
 The "git philosophy" encourage you to try things in a new branch and only merge if everything worked.
 #+END_NOTES
+
+
 
 * Goodie
 

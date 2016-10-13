@@ -156,7 +156,7 @@ This section can be skipped if the audience is already convinced of the answer (
 
 </section>
 <section>
-<img src="./img/dropbox.png" style="margin-top: -100px">
+<img class="stretch" src="./img/dropbox.png">
 
 <p>
 <a href="https://www.dropbox.com/en/help/36">Source: Dropbox Help</a>
@@ -224,19 +224,6 @@ with the guarantee that changes by different users will not automatically overwr
 </section>
 <section id="slide-orgheadline7">
 <h4 id="orgheadline7"><span class="section-number-4">2.1.4</span> Take-away message</h4>
-<p>
-Trade-off between and simplicity.
-</p>
-<aside class="notes">
-<p>
-Currently, we are mostly at one very end.
-</p>
-
-</aside>
-
-</section>
-<section id="slide-orgheadline11">
-<h3 id="orgheadline11"><span class="section-number-3">2.2</span> What is not <code>git</code>?</h3>
 <ul>
 <li class="fragment roll-in">Trade-off between rigor (data-side) and easiness (UX-side).</li>
 <li class="fragment roll-in">Most users are limited to one very end.</li>
@@ -244,12 +231,19 @@ Currently, we are mostly at one very end.
 </ul>
 
 </section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11"><span class="section-number-3">2.2</span> What is not <code>git</code>?</h3>
+<div class="outline-text-3" id="text-2-2">
+</div></section>
 <section id="slide-orgheadline9">
 <h4 id="orgheadline9"><span class="section-number-4">2.2.1</span> git vs GitHub</h4>
-<ul>
-<li class="fragment roll-in">&ldquo;GitHub is a web-based <b>Git repository hosting service</b>, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.&rdquo; (<a href="https://en.wikipedia.org/wiki/GitHub">Wikipedia</a>) (but there are others, see BitBucket).</li>
+<blockquote nil>
+<p>
+&ldquo;GitHub is a web-based <b>Git repository hosting service</b>, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.&rdquo; (<a href="https://en.wikipedia.org/wiki/GitHub">Wikipedia</a>)
+</p>
+</blockquote>
 
-</ul>
+<p style="font-size: 0.75em; margin: 200px 200px 0 0; text-align: right;">but there are others, see BitBucket</p>
 
 </section>
 <section id="slide-orgheadline10">
@@ -370,33 +364,29 @@ Sync locally (set a local to track the remote)
 
 </section>
 <section>
-<ul>
-<li><p>
+<p>
 Initialize the repository
 </p>
+
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git init
 
 Initialized empty Git repository<span style="color: #F0DFAF; font-weight: bold;"> in</span> /home/enrique/Documents/courses/resume
 </pre>
-</div></li>
-
-</ul>
+</div>
 
 </section>
 <section>
-<ul>
-<li><p>
+<p>
 Track the remote
 </p>
+
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
 </pre>
-</div></li>
-
-</ul>
+</div>
 
 </section>
 <section id="slide-orgheadline20">
@@ -430,21 +420,17 @@ Track the remote
 <h3 id="orgheadline26"><span class="section-number-3">4.2</span> Commiting a single change</h3>
 </section>
 <section>
-<ul>
-<li>The git workflow</li>
+<p>
+The git workflow
+</p>
 
-</ul>
-
-<div style="height:900px;">
-<iframe src="flow.html" style="min-width:400px;height:100%;"></iframe>
-</div>
+<iframe class="stretch" src="flow.html" style="align: middle;" width="600px"></iframe>
 
 </section>
 <section>
-<ul>
-<li>Make edit</li>
-
-</ul>
+<p>
+Make edit 
+</p>
 
 
 <div class="figure">
@@ -454,10 +440,9 @@ Track the remote
 
 </section>
 <section>
-<ul>
-<li>Checking the status of the Working Tree</li>
-
-</ul>
+<p>
+Checking the status of the Working Tree
+</p>
 
 <div class="org-src-container">
 
@@ -477,10 +462,9 @@ no changes added to commit (use <span style="color: #CC9393;">"git add"</span> a
 
 </section>
 <section>
-<ul>
-<li>Diffing</li>
-
-</ul>
+<p>
+Diffing
+</p>
 
 
 <div class="figure">
@@ -493,10 +477,9 @@ no changes added to commit (use <span style="color: #CC9393;">"git add"</span> a
 <h4 id="orgheadline23"><span class="section-number-4">4.2.1</span> From the command line</h4>
 </section>
 <section>
-<ul>
-<li>Add (stage)</li>
-
-</ul>
+<p>
+Add (stage)
+</p>
 
 <div class="org-src-container">
 
@@ -506,26 +489,24 @@ no changes added to commit (use <span style="color: #CC9393;">"git add"</span> a
 
 </section>
 <section>
-<ul>
-<li>Commit</li>
-
-</ul>
+<p>
+Commit
+</p>
 
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git commit -m <span style="color: #CC9393;">"Changed name"</span>
 
 [master 9a23987] Changed name
- 1 file changed, 2 insertions(+), 2 deletions(-)
+  1 file changed, 2 insertions(+), 2 deletions(-)
 </pre>
 </div>
 
 </section>
 <section>
-<ul>
-<li>Push</li>
-
-</ul>
+<p>
+Push
+</p>
 
 <div class="org-src-container">
 
@@ -538,7 +519,7 @@ Writing objects: 100% (3/3), 395 bytes | 0 bytes/s, done.
 Total 3 (delta 2), reused 0 (delta 0)
 remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
 To https://github.com/emanjavacas/resume.git
-   eb6121f..9a23987  master -&gt; master
+  eb6121f..9a23987  master -&gt; master
 </pre>
 </div>
 
@@ -547,10 +528,9 @@ To https://github.com/emanjavacas/resume.git
 <h4 id="orgheadline24"><span class="section-number-4">4.2.2</span> From GitHub Desktop</h4>
 </section>
 <section>
-<ul>
-<li>Add (stage) &amp; Commit</li>
-
-</ul>
+<p>
+Add (stage) &amp; commit
+</p>
 
 
 <div class="figure">
@@ -560,10 +540,9 @@ To https://github.com/emanjavacas/resume.git
 
 </section>
 <section>
-<ul>
-<li>Push (sync)</li>
-
-</ul>
+<p>
+Push (sync)
+</p>
 
 
 <div class="figure">
@@ -594,10 +573,9 @@ More realistic setup, choose what to include in each commit separatedly
 
 </section>
 <section>
-<ul>
-<li>Make changes to multiple files</li>
-
-</ul>
+<p>
+Make changes to multiple files
+</p>
 
 
 <div class="figure">
@@ -607,6 +585,9 @@ More realistic setup, choose what to include in each commit separatedly
 
 </section>
 <section>
+<p>
+Check the changes
+</p>
 
 <div class="org-src-container">
 
@@ -627,8 +608,11 @@ Changes not staged for commit:
 </section>
 <section id="slide-orgheadline27">
 <h4 id="orgheadline27"><span class="section-number-4">4.3.1</span> From the command line</h4>
-<ul>
-<li class="fragment roll-in">Git flow (add, commit)
+</section>
+<section>
+<p>
+Git flow (add, commit)
+</p>
 <ul>
 <li class="fragment roll-in"><p>
 Add email update
@@ -652,16 +636,13 @@ $ git commit -m <span style="color: #CC9393;">"Changed background"</span>
 </pre>
 </div></li>
 
-</ul></li>
-
 </ul>
 
 </section>
 <section>
-<ul>
-<li>Push</li>
-
-</ul>
+<p>
+Push
+</p>
 
 <div class="org-src-container">
 
@@ -682,33 +663,25 @@ To https://github.com/emanjavacas/resume.git
 </section>
 <section id="slide-orgheadline28">
 <h4 id="orgheadline28"><span class="section-number-4">4.3.2</span> From GitHub Desktop</h4>
-<ul>
-<li>Add (stage) &amp; Commit</li>
-
-</ul>
-
 </section>
 <section>
-
-<div class="figure">
-<p><img src="./img/add_mail_commit.png" alt="add_mail_commit.png" />
+<p>
+Add (stage) &amp; commit
+<img src="./img/add_mail_commit.png" alt="add_mail_commit.png" />
 </p>
-</div>
 
 </section>
 <section>
-
-<div class="figure">
-<p><img src="./img/add_multiple_commit.png" alt="add_multiple_commit.png" />
+<p>
+Add (stage) &amp; commit multiple changes
+<img src="./img/add_multiple_commit.png" alt="add_multiple_commit.png" />
 </p>
-</div>
 
 </section>
 <section>
-<ul>
-<li>Push</li>
-
-</ul>
+<p>
+Push both commits
+</p>
 
 
 <div class="figure">
@@ -745,8 +718,11 @@ We are going to edit the content in the &ldquo;resume&rdquo; tab
 </section>
 <section id="slide-orgheadline31">
 <h4 id="orgheadline31"><span class="section-number-4">4.4.1</span> From the command line</h4>
-<ul>
-<li class="fragment roll-in">Create a new branch
+</section>
+<section>
+<p>
+Create a new branch
+</p>
 <ul>
 <li class="fragment roll-in">Long version
 <ul>
@@ -779,16 +755,14 @@ Short version
 </pre>
 </div></li>
 
-</ul></li>
-
 </ul>
 
 </section>
 <section>
-<ul>
-<li><p>
+<p>
 See which branches are there
 </p>
+
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git branch -v
@@ -796,35 +770,31 @@ See which branches are there
 master 0a7be54 Changed background
 * resume 299b6f9 Changed background
 </pre>
-</div></li>
-
-</ul>
+</div>
 
 </section>
 <section>
-<ul>
-<li><p>
+<p>
 Switch to a particular branch (magic!)
 </p>
+
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git checkout master
 
 Switched to branch <span style="color: #CC9393;">'resume'</span>
 </pre>
-</div></li>
-
-</ul>
+</div>
 
 </section>
 <section id="slide-orgheadline32">
 <h4 id="orgheadline32"><span class="section-number-4">4.4.2</span> From GitHub Desktop</h4>
 </section>
 <section>
-<ul>
-<li>Create a branch</li>
+<p>
+Create a branch
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/new_branch_gh.png" alt="new_branch_gh.png" />
@@ -833,10 +803,10 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 
 </section>
 <section>
-<ul>
-<li>See all branches</li>
+<p>
+See all branches
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/branches_gh.png" alt="branches_gh.png" />
@@ -845,10 +815,10 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 
 </section>
 <section>
-<ul>
-<li>Select a branch</li>
+<p>
+Select a branch
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/switch_to_branch_gh.png" alt="switch_to_branch_gh.png" />
@@ -861,21 +831,17 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 <ul>
 <li class="fragment roll-in">Create a branch (give it the name you prefer)</li>
 <li class="fragment roll-in">Switch to it (if you are not there yet)</li>
-<li class="fragment roll-in">Make local changes (as shown previously) &amp; Commit</li>
+<li class="fragment roll-in">Make local changes (as shown previously) &amp; commit</li>
 
 </ul>
 
 </section>
 <section>
-<ul>
-<li>Example of changes:</li>
-
-</ul>
-
-<div class="figure">
-<p><img src="./img/branch_changes_gh.png" alt="branch_changes_gh.png" />
+<p>
+Example of changes
 </p>
-</div>
+
+<img src="./img/branch_changes_gh.png" class="stretch">
 
 </section>
 <section>
@@ -892,17 +858,17 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 </div></section>
 <section id="slide-orgheadline35">
 <h4 id="orgheadline35"><span class="section-number-4">4.5.1</span> From the command line</h4>
-<ul>
-<li class="fragment roll-in"><p>
+</section>
+<section>
+<p>
 Compare branches
 </p>
+
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git diff resume master
 </pre>
-</div></li>
-
-</ul>
+</div>
 
 </section>
 <section>
@@ -914,8 +880,10 @@ Compare branches
 
 </section>
 <section>
-<ul>
-<li>Merge target branch (resume) into receiving branch (master)
+<p>
+Merge target branch (resume) into receiving branch (master)
+</p>
+
 <ul>
 <li class="fragment roll-in"><p>
 Switch to receiving branch (master)
@@ -949,8 +917,6 @@ Push
 </pre>
 </div></li>
 
-</ul></li>
-
 </ul>
 
 </section>
@@ -958,10 +924,10 @@ Push
 <h4 id="orgheadline36"><span class="section-number-4">4.5.2</span> From GitHub Desktop</h4>
 </section>
 <section>
-<ul>
-<li>Switch to target branch (in our case, master)</li>
+<p>
+Switch to target branch (in our case, master)
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/switch_to_master_gh.png" alt="switch_to_master_gh.png" />
@@ -970,10 +936,10 @@ Push
 
 </section>
 <section>
-<ul>
-<li>Select &ldquo;merge from resume&rdquo;</li>
+<p>
+Select &ldquo;merge from resume&rdquo;
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/merge_from_resume_gh.png" alt="merge_from_resume_gh.png" />
@@ -982,10 +948,10 @@ Push
 
 </section>
 <section>
-<ul>
-<li>A Merge is just a commit</li>
+<p>
+A Merge is just a commit
+</p>
 
-</ul>
 
 <div class="figure">
 <p><img src="./img/merge_commit_gh.png" alt="merge_commit_gh.png" />
@@ -994,10 +960,9 @@ Push
 
 </section>
 <section>
-<ul>
-<li>Push (Sync)</li>
-
-</ul>
+<p>
+Push (Sync)
+</p>
 
 </section>
 <section id="slide-orgheadline37">
@@ -1019,14 +984,16 @@ Merging locally is very useful but is not the only type of merge
 
 </aside>
 
-<ul>
-<li class="fragment roll-in">Merges are not restricted to local branches. You can also merge:
+</section>
+<section>
+<p>
+Merges are not restricted to local branches. You can also merge:
+</p>
+
 <ul>
 <li class="fragment roll-in">A branch in your remote (an &ldquo;origin&rdquo; branch)</li>
 <li class="fragment roll-in">A branch in someone else&rsquo;s remote - fork source project (an &ldquo;upstream&rdquo; branch).</li>
 <li class="fragment roll-in">A branch of someone&rsquo;s fork of your project. Pull Request.</li>
-
-</ul></li>
 
 </ul>
 
@@ -1043,13 +1010,22 @@ Now you are going to merge a pull request that your colleague is going to submit
 <section>
 <p>
 Fork your colleague&rsquo;s project and clone it locally
-<img src="./fork_gh.png" alt="fork_gh.png" />
 </p>
+
+
+<div class="figure">
+<p><img src="./fork_gh.png" alt="fork_gh.png" />
+</p>
+</div>
 
 </section>
 <section>
 <p>
 Introduce (conspicuous) typos in your index.html file (push them too)
+</p>
+
+<p>
+<a href="./">./</a>
 </p>
 
 </section>
@@ -1077,6 +1053,9 @@ Merge your colleague&rsquo;s pull request into your master branch
 </p>
 
 
+
+
+
 </section>
 <section id="slide-orgheadline42">
 <h3 id="orgheadline42"><span class="section-number-3">4.7</span> Revert</h3>
@@ -1091,6 +1070,8 @@ The &ldquo;git philosophy&rdquo; encourage you to try things in a new branch and
 </p>
 
 </aside>
+
+
 
 </section>
 </section>
