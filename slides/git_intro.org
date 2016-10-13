@@ -269,18 +269,19 @@ Sync locally (set a local to track the remote)
 
 *** Your turn
 
-#+REVEAL: split
-First we need to download a template
-
 #+attr_reveal: :frag (roll-in)
-- Google for "~free html resume template~"
-- Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
-- Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
-
+- First we need to download a template  
+  #+attr_reveal: :frag (roll-in)
+  - Google for "~free html resume template~"
+  - Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
+  - Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
+- Create a remote repository (github.com)
+- Set the local to track the remote
+  
 ** Commiting a single change
 # Objective: Do some local changes, commit and push
 # Situation: single
-# Workflow: - Modify info - commit - push; modify font-size, add new background img, modify css for new img - commits - push;
+# Workflow: - Modify info - commit - push
 
 #+reveal: split
 - The git workflow
@@ -364,28 +365,190 @@ To https://github.com/emanjavacas/resume.git
 
 [[./img/sync_commit_gh.png]]
 
+*** Your turn
+#+attr_reveal: :frag (roll-in)
+- Change your info in ~index.html~
+- Add & Commit
+- Push
+
+
 ** Commiting multiple changes
+# Objective: Do local changes, group commits and push them separatedly
+# Situation: single
+# Workflow: modify font-size, add new background img, modify css for new img - commits - push;
+
 #+BEGIN_NOTES
 More realistic setup, choose what to include in each commit separatedly
 #+END_NOTES
 
+#+reveal: split
+- Make changes to multiple files
+
+[[./img/commits_edit.png]]
+
+#+reveal: split
+
+#+BEGIN_SRC bash
+$ git status
+
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+        modified:   css/main.css
+        modified:   images/spectrum.jpg
+#+END_SRC
+
+*** From the command line
+
 #+attr_reveal: :frag (roll-in)
-- Modify font-size
 - Git flow (add, commit)
+  #+attr_reveal: :frag (roll-in)
+  - Add email update
+    #+BEGIN_SRC bash
+    $ git add index.html
+
+    $ git commit -m "Changed mailto"
+    #+END_SRC
+
+  - Add background update (both files at once)
+    #+BEGIN_SRC bash
+    $ git add css/main.css images/spectrum.jpg
+
+    $ git commit -m "Changed background"
+    #+END_SRC
+
+#+reveal: split
 - Push
+
+#+BEGIN_SRC bash
+$ git push
+
+Pushing to https://github.com/emanjavacas/resume.git
+Counting objects: 16, done.
+Delta compression using up to 2 threads.
+Writing objects: 100% (16/16), 252.52 KiB | 0 bytes/s, done.
+Total 16 (delta 7), reused 0 (delta 0)
+POST git-receive-pack (258725 bytes)
+remote: Resolving deltas: 100% (7/7), completed with 3 local objects.        
+To https://github.com/emanjavacas/resume.git
+   9a23987..b45d6be  master -> master
+#+END_SRC
+
+*** From GitHub Desktop
+
+- Add (stage) & Commit
+
+#+reveal: split
+[[./img/add_mail_commit.png]]
+
+#+reveal: split
+[[./img/add_multiple_commit.png]]
+
+#+reveal: split
+- Push
+
+[[./img/multiple_commited_gh]]
+
+
+*** Your turn
+
+#+attr_reveal: :frag (roll-in)
+- Search for a background image
+  #+attr_reveal: :frag (roll-in)
+  - Google for images (labeled for reuse; matching color; appropriate size)
+  - Or download the one I used from [[https://github.com/emanjavacas/resume/raw/dev/images/spectrum.jpg][here]].
+- Put the file in the corresponding folder
+- Change ~main.css~
+- Add & Commit (make sure you commit both files)
+- Do some other changes & commit them separatedly
+- Push everything
 
 ** Branching
 # Creating a branch, and merging branches
 # Situation: single
 # Workflow: New branch for a new feat (TODO) -> git flow
+We are going to edit the content in the "resume" tab
 
-** Merging
-*** Merging from local branch
+*** From the command line
+
+#+attr_reveal: :frag (roll-in)
+- Create a new branch
+  #+attr_reveal: :frag (roll-in)
+  - Long version
+    #+attr_reveal: :frag (roll-in)
+    - Create branch
+      #+BEGIN_SRC bash
+      $ git branch resume
+      #+END_SRC
+    - Move to it (checkout)
+      #+BEGIN_SRC bash
+      $ git checkout resume
+      
+      Switched to branch 'resume'
+      #+END_SRC
+  - Short version
+    #+BEGIN_SRC bash
+    $ git checkout -b resume
+    #+END_SRC
+
+#+reveal: split
+- See which branches are there
+
+#+BEGIN_SRC bash
+$ git branch -v
+
+  master 0a7be54 Changed background
+* resume 299b6f9 Changed background
+#+END_SRC
+
+#+reveal: split
+- Switch to a particular branch (magic!)
+
+#+BEGIN_SRC bash
+$ git checkout master
+
+Switched to branch 'resume'
+#+END_SRC
+
+*** From GitHub Desktop
+
+#+reveal: split
+- Create a branch
+[[./img/new_branch_gh.png]]
+
+#+reveal: split
+- See all branches
+[[./img/branches_gh.png]]
+
+#+reveal: split
+- Select a branch
+[[./img/switch_to_branch]]
+
+*** Your turn
+
+#+attr_reveal: :frag (roll-in)
+- Create a branch (give it the name you prefer)
+- Switch to it (if you are not there yet)
+- Make local changes (as shown previously) & Commit
+#+reveal: split
+[[./img/branch_changes.png]]
+
+#+reveal: split
+- Create a branch (give it the name you prefer)
+- Switch to it (if you are not there yet)
+- Make local changes (as shown previously) & Commit
+- Push (and see the results in your remote)
+
+** Merging from local branch
 # Objective: merging is just a commit, familiarize with the merging tool/syntax
 # Situation: single
 # Workflow: ...
 
-*** Merging a pull request
+** Merging a pull request
 # Objective: automerging, manual merging from a remote
 # Situation: couples, forking from each other, submitting pull requests, merging
 # Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
@@ -397,6 +560,10 @@ More realistic setup, choose what to include in each commit separatedly
 # Situation: single
 # Workflow: ...
 
+#+BEGIN_NOTES
+Revert is an operation that is less common than what you might think.
+The "git philosophy" encourage you to try things in a new branch and only merge if everything worked.
+#+END_NOTES
 
 * Goodie
 
