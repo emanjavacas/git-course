@@ -230,7 +230,7 @@ For this tutorial, we are going to create a (very basic) resume homepage.
 Create the remote
 
 #+BEGIN_HTML
-<img src="./img/new_repo.png">
+<img class="stretch" src="./img/new_repo.png">
 #+END_HTML
 
 #+reveal: split
@@ -617,7 +617,7 @@ Push (Sync)
 - Push
 
 ** Merging a pull request
-# Objective: automerging, manual merging from a remote
+# Objective: automerging, 
 # Situation: couples, forking from each other, submitting pull requests, merging
 # Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
 
@@ -643,25 +643,92 @@ Fork your colleague's project and clone it locally
 [[./fork_gh.png]]
 
 #+reveal: split
-Introduce (conspicuous) typos in your index.html file (push them too)
-
-[[./]]
+[[./img/clone_fork.png]]
 
 #+reveal: split
-Diff your local fork from the upstream to see the typos
+Introduce (conspicuous) typos in your local index.html file (push them too)
+
+[[./img/typos_gh.png]]
 
 #+reveal: split
-Modify the typos
+Pull and merge from your colleague's upstream fork to see the typos
+
+[[./img/merge_upstream.png]]
+
+[[./img/merge_upstream_changes.png]]
+
+#+reveal: split
+Modify the typos and commit
+
+[[./img/fixed_typos_gh.png]]
 
 #+reveal: split
 Issue a pull request
 
+[[./img/pull_request_gh.png]]
+
 #+reveal: split
 Merge your colleague's pull request into your master branch
 
+#+reveal: split
+Go to your github project
 
+[[./img/new_pull_request_web.png]]
 
+#+reveal: split
+Check pull request
 
+[[./img/incoming_pull_request_web.png]]
+
+#+reveal: split
+Accept incoming pull request
+
+[[./img/merge_pull_request_web.png]]
+
+** Merging a conflicting pull request
+# Objective: manual merging from a remote
+# Situation: couples, forking from each other, submitting pull requests, merging
+# Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
+
+That was easy, but sometimes merging doesn't work automatically. Let's see how.
+
+#+reveal: split
+Modify your local repository
+
+#+reveal: split
+Modify your fork of your colleague
+
+#+reveal: split
+Issue pull request
+
+#+reveal: split
+Check your colleague's incoming pull request
+
+#+reveal: split
+To solve the conflict you need:
+
+#+attr_reveal: :frag (roll-in)
+- Clone your colleague's fork branch into your project
+  #+attr_reveal: :frag (roll-in)
+  - Create a new branch 
+    #+BEGIN_SRC bash
+    $ git checkout yourcolleague-branch local-branch-name
+    #+END_SRC
+    
+  - Pull from the remote branch
+    #+BEGIN_SRC bash
+    $ git pull https://github.com/yourcolleage/resume.git local-branch-name
+    #+END_SRC
+
+- Solve the conflict
+  #+attr_reveal: :frag (roll-in)
+  - Checkout the new local branch
+    #+BEGIN_SRC bash
+    $ git checkout local-branch-name
+    #+END_SRC
+
+  - Edit the conflicted file
+  - Commit and push the changed file
 
 ** Revert
 # Objective: learn how to revert pushed commits (revert) and uncommited changes (stash)
