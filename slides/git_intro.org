@@ -15,10 +15,10 @@
 #+REVEAL_TRANS: nil
 #+REVEAL_THEME: league
 #+REVEAL_HLEVEL: 1
-#+REVEAL_EXTRA_CSS: ./extra_git.css
+#+REVEAL_EXTRA_CSS: ./css/extra_git.css
 
 * Getting started
-
+  
 #+attr_reveal: :frag (roll-in)
 - This is [[https://emanjavacas.github.io][me]].
 
@@ -170,6 +170,7 @@ with the guarantee that changes by different users will not automatically overwr
 #+attr_reveal: :frag (roll-in)
 - While you could use git/GitHub for backing up, it *cannot handle large/binary files very well*.
 
+
 * Basic Git Concepts
 
 Let's introduce a bit of vocabulary (Last bit of me talking alone!)
@@ -211,7 +212,7 @@ Let's introduce a bit of vocabulary (Last bit of me talking alone!)
      - Move to a "future" state of the project (e.g. pulling from remote changes)
 
 *** Commit
-    A snapshot including changes to previous states of the repository.
+    A snapshot including changes to a previous state of the repository.
 
 *** Branch
     Any of the parallel states in the repository (a particular commit history).
@@ -224,59 +225,149 @@ Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
 For this tutorial, we are going to create a (very basic) resume homepage.
 
-#+REVEAL: split
-First we need to download a template
+*** Using the Command Line
 
-#+attr_reveal: :frag (roll-in)
-- Google for `free html resume template`
-- Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
-- Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
-
-*** Create the remote repository (GitHub)
+#+reveal: split
+Create the remote
 
 #+BEGIN_HTML
 <img src="./img/new_repo.png">
 #+END_HTML
 
-*** Set local repository to track remote repository
+#+reveal: split
+Sync locally (set a local to track the remote)
 
-**** Using the Command Line
+#+BEGIN_HTML
+<img src="./img/new_repo_setup_gh.png">
+#+END_HTML
 
-***** Initialize the repository
- #+BEGIN_SRC bash
- $ git init
- Initialized empty Git repository in /home/enrique/Documents/courses/git/resume
- #+END_SRC
+#+reveal: split
+- Initialize the repository
+  #+BEGIN_SRC bash
+  $ git init
 
-***** Set the remote
- #+BEGIN_SRC bash
- $ git remote add origin https://github.com/emanjavacas/resume.git
- #+END_SRC
+  Initialized empty Git repository in /home/enrique/Documents/courses/resume
+  #+END_SRC
 
-**** Using GitHub Desktop
+#+reveal: split
+- Track the remote
+  #+BEGIN_SRC bash
+  $ git remote add origin https://github.com/emanjavacas/resume.git
+  #+END_SRC
 
-Screenshot
+*** Using GitHub Desktop
 
-** Commit changes
+#+reveal: split
+#+BEGIN_HTML
+<img src="./img/new_repo_gh1.png">
+#+END_HTML
+
+#+reveal: split
+#+BEGIN_HTML
+<img src="./img/new_repo_gh2.png">
+#+END_HTML
+
+*** Your turn
+
+#+REVEAL: split
+First we need to download a template
+
+#+attr_reveal: :frag (roll-in)
+- Google for "~free html resume template~"
+- Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
+- Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
+
+** Commiting a single change
 # Objective: Do some local changes, commit and push
 # Situation: single
 # Workflow: - Modify info - commit - push; modify font-size, add new background img, modify css for new img - commits - push;
 
 #+reveal: split
+- The git workflow
+
 #+BEGIN_HTML
-<iframe width="300px" height="600px" src="flow.html"></iframe>
+<div style="height:900px;">
+<iframe src="flow.html" style="min-width:400px;height:100%;"></iframe>
+</div>
 #+END_HTML
 
-*** Single commit
-#+attr_reveal: :frag (roll-in)
-- Modify info
-- Git flow (add, commit)
+#+reveal: split
+- Make edit 
+
+[[./img/commit_edit.png]]
+
+#+reveal: split
+- Checking the status of the Working Tree
+
+#+BEGIN_SRC bash
+$ git status
+
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+#+END_SRC
+
+#+reveal: split
+- Diffing
+
+[[./img/commit_edit_diff_gh.png]]
+
+*** From the command line
+
+#+reveal: split
+- Add (stage)
+
+#+BEGIN_SRC bash
+$ git add index.html
+#+END_SRC
+
+#+reveal: split
+- Commit
+
+#+BEGIN_SRC bash
+$ git commit -m "Changed name"
+
+[master 9a23987] Changed name
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+#+END_SRC
+
+#+reveal: split
 - Push
 
-*** Multiple commits
-    #+BEGIN_NOTES
-    More realistic setup, 
-    #+END_NOTES
+#+BEGIN_SRC bash
+$ git push
+
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 395 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/emanjavacas/resume.git
+   eb6121f..9a23987  master -> master
+#+END_SRC
+
+*** From GitHub Desktop
+#+reveal: split
+- Add (stage) & Commit
+
+[[./img/add_commit_gh.png]]
+
+#+reveal: split
+- Push (sync)
+
+[[./img/sync_commit_gh.png]]
+
+** Commiting multiple changes
+#+BEGIN_NOTES
+More realistic setup, choose what to include in each commit separatedly
+#+END_NOTES
 
 #+attr_reveal: :frag (roll-in)
 - Modify font-size
@@ -300,14 +391,18 @@ Screenshot
 # Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
 
 ** Revert
-
 # Objective: learn how to revert pushed commits (revert) and uncommited changes (stash)
   # see http://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit/4114122#4114122
   # for an explanation of revert workflows in three different scenarios
 # Situation: single
 # Workflow: ...
 
+
 * Goodie
 
 - If you change the name of your repository to ~username.github.io~, you can get your own personal page served by GitHub
 - More info about GitHub Pages [[https://pages.github.com/][here]].
+
+
+
+

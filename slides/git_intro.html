@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/css/theme/league.css" id="theme"/>
 
-<link rel="stylesheet" href="./extra_git.css"/>
+<link rel="stylesheet" href="./css/extra_git.css"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -47,16 +47,17 @@
 </ul>
 </li>
 <li><a href="#/slide-orgheadline18">3. Basic Git Concepts</a></li>
-<li><a href="#/slide-orgheadline34">4. Hands-on Tutorial</a>
+<li><a href="#/slide-orgheadline32">4. Hands-on Tutorial</a>
 <ul>
-<li><a href="#/slide-orgheadline25">4.1. Create your own repository</a></li>
-<li><a href="#/slide-orgheadline28">4.2. Commit changes</a></li>
-<li><a href="#/slide-orgheadline29">4.3. Branching</a></li>
-<li><a href="#/slide-orgheadline32">4.4. Merging</a></li>
-<li><a href="#/slide-orgheadline33">4.5. Revert</a></li>
+<li><a href="#/slide-orgheadline22">4.1. Create your own repository</a></li>
+<li><a href="#/slide-orgheadline25">4.2. Commiting a single change</a></li>
+<li><a href="#/slide-orgheadline26">4.3. Commiting multiple changes</a></li>
+<li><a href="#/slide-orgheadline27">4.4. Branching</a></li>
+<li><a href="#/slide-orgheadline30">4.5. Merging</a></li>
+<li><a href="#/slide-orgheadline31">4.6. Revert</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orgheadline35">5. Goodie</a></li>
+<li><a href="#/slide-orgheadline33">5. Goodie</a></li>
 </ul>
 </div>
 </div>
@@ -325,7 +326,7 @@ Ways to change the working tree:
 <section id="slide-orgheadline16">
 <h4 id="orgheadline16"><span class="section-number-4">3.0.3</span> Commit</h4>
 <p>
-A snapshot including changes to previous states of the repository.
+A snapshot including changes to a previous state of the repository.
 </p>
 
 </section>
@@ -335,20 +336,82 @@ A snapshot including changes to previous states of the repository.
 Any of the parallel states in the repository (a particular commit history).
 </p>
 
-
 </section>
 </section>
 <section>
-<section id="slide-orgheadline34">
-<h2 id="orgheadline34"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
+<section id="slide-orgheadline32">
+<h2 id="orgheadline32"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
 <div class="outline-text-2" id="text-4">
 </div></section>
-<section id="slide-orgheadline25">
-<h3 id="orgheadline25"><span class="section-number-3">4.1</span> Create your own repository</h3>
+<section id="slide-orgheadline22">
+<h3 id="orgheadline22"><span class="section-number-3">4.1</span> Create your own repository</h3>
 <p>
 For this tutorial, we are going to create a (very basic) resume homepage.
 </p>
 
+</section>
+<section id="slide-orgheadline19">
+<h4 id="orgheadline19"><span class="section-number-4">4.1.1</span> Using the Command Line</h4>
+</section>
+<section>
+<p>
+Create the remote
+</p>
+
+<img src="./img/new_repo.png">
+
+</section>
+<section>
+<p>
+Sync locally (set a local to track the remote)
+</p>
+
+<img src="./img/new_repo_setup_gh.png">
+
+</section>
+<section>
+<ul>
+<li><p>
+Initialize the repository
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git init
+
+Initialized empty Git repository<span style="color: #F0DFAF; font-weight: bold;"> in</span> /home/enrique/Documents/courses/resume
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+<section>
+<ul>
+<li><p>
+Track the remote
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline20">
+<h4 id="orgheadline20"><span class="section-number-4">4.1.2</span> Using GitHub Desktop</h4>
+</section>
+<section>
+<img src="./img/new_repo_gh1.png">
+
+</section>
+<section>
+<img src="./img/new_repo_gh2.png">
+
+</section>
+<section id="slide-orgheadline21">
+<h4 id="orgheadline21"><span class="section-number-4">4.1.3</span> Your turn</h4>
 </section>
 <section>
 <p>
@@ -356,61 +419,164 @@ First we need to download a template
 </p>
 
 <ul>
-<li class="fragment roll-in">Google for `free html resume template`</li>
+<li class="fragment roll-in">Google for &ldquo;<code>free html resume template</code>&rdquo;</li>
 <li class="fragment roll-in">Pick one from <a href="http://trendytheme.net/20-best-free-html-resume-templates-to-download/">here</a></li>
 <li class="fragment roll-in">Download the one I picked from <a href="https://www.github.com/emanjavacas/resume/archive/v0.0.zip">here</a>.</li>
 
 </ul>
 
 </section>
-<section id="slide-orgheadline19">
-<h4 id="orgheadline19"><span class="section-number-4">4.1.1</span> Create the remote repository (GitHub)</h4>
-<img src="./img/new_repo.png">
-
-</section>
-<section id="slide-orgheadline24">
-<h4 id="orgheadline24"><span class="section-number-4">4.1.2</span> Set local repository to track remote repository</h4>
-<div class="outline-text-4" id="text-4-1-2">
-</div><ol class="org-ol"><li><a id="orgheadline22"></a>Using the Command Line<br  /><ol class="org-ol"><li><a id="orgheadline20"></a>Initialize the repository<br  /><div class="org-src-container">
-
-<pre  class="src src-bash">$ git init
-Initialized empty Git repository<span style="color: #F0DFAF; font-weight: bold;"> in</span> /home/enrique/Documents/courses/git/resume
-</pre>
-</div></li>
-
-<li><a id="orgheadline21"></a>Set the remote<br  /><div class="org-src-container">
-
-<pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
-</pre>
-</div></li></ol></li>
-
-<li><a id="orgheadline23"></a>Using GitHub Desktop<br  /><p>
-Screenshot
-</p></li></ol>
-
-</section>
-<section id="slide-orgheadline28">
-<h3 id="orgheadline28"><span class="section-number-3">4.2</span> Commit changes</h3>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25"><span class="section-number-3">4.2</span> Commiting a single change</h3>
 </section>
 <section>
-<iframe width="300px" height="600px" src="flow.html"></iframe>
-
-</section>
-<section id="slide-orgheadline26">
-<h4 id="orgheadline26"><span class="section-number-4">4.2.1</span> Single commit</h4>
 <ul>
-<li class="fragment roll-in">Modify info</li>
-<li class="fragment roll-in">Git flow (add, commit)</li>
-<li class="fragment roll-in">Push</li>
+<li>The git workflow</li>
 
 </ul>
 
+<div style="height:900px;">
+<iframe src="flow.html" style="min-width:400px;height:100%;"></iframe>
+</div>
+
 </section>
-<section id="slide-orgheadline27">
-<h4 id="orgheadline27"><span class="section-number-4">4.2.2</span> Multiple commits</h4>
+<section>
+<ul>
+<li>Make edit</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="./img/commit_edit.png" alt="commit_edit.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Checking the status of the Working Tree</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git status
+
+On branch master
+Your branch is up-to-date with <span style="color: #CC9393;">'origin/master'</span>.
+Changes not staged for commit:
+  (use <span style="color: #CC9393;">"git add &lt;file&gt;..."</span> to update what will be committed)
+  (use <span style="color: #CC9393;">"git checkout -- &lt;file&gt;..."</span> to discard changes<span style="color: #F0DFAF; font-weight: bold;"> in</span> working directory)
+
+        modified:   index.html
+
+no changes added to commit (use <span style="color: #CC9393;">"git add"</span> and/or <span style="color: #CC9393;">"git commit -a"</span>)
+</pre>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Diffing</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="./img/commit_edit_diff_gh.png" alt="commit_edit_diff_gh.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgheadline23">
+<h4 id="orgheadline23"><span class="section-number-4">4.2.1</span> From the command line</h4>
+</section>
+<section>
+<ul>
+<li>Add (stage)</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git add index.html
+</pre>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Commit</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git commit -m <span style="color: #CC9393;">"Changed name"</span>
+
+[master 9a23987] Changed name
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+</pre>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Push</li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git push
+
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 395 bytes | 0 bytes/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/emanjavacas/resume.git
+   eb6121f..9a23987  master -&gt; master
+</pre>
+</div>
+
+</section>
+<section id="slide-orgheadline24">
+<h4 id="orgheadline24"><span class="section-number-4">4.2.2</span> From GitHub Desktop</h4>
+</section>
+<section>
+<ul>
+<li>Add (stage) &amp; Commit</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="./img/add_commit_gh.png" alt="add_commit_gh.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Push (sync)</li>
+
+</ul>
+
+
+<div class="figure">
+<p><img src="./img/sync_commit_gh.png" alt="sync_commit_gh.png" />
+</p>
+</div>
+
+</section>
+<section id="slide-orgheadline26">
+<h3 id="orgheadline26"><span class="section-number-3">4.3</span> Commiting multiple changes</h3>
 <aside class="notes">
 <p>
-More realistic setup, 
+More realistic setup, choose what to include in each commit separatedly
 </p>
 
 </aside>
@@ -423,27 +589,26 @@ More realistic setup,
 </ul>
 
 </section>
-<section id="slide-orgheadline29">
-<h3 id="orgheadline29"><span class="section-number-3">4.3</span> Branching</h3>
+<section id="slide-orgheadline27">
+<h3 id="orgheadline27"><span class="section-number-3">4.4</span> Branching</h3>
 </section>
-<section id="slide-orgheadline32">
-<h3 id="orgheadline32"><span class="section-number-3">4.4</span> Merging</h3>
-<div class="outline-text-3" id="text-4-4">
-</div></section>
 <section id="slide-orgheadline30">
-<h4 id="orgheadline30"><span class="section-number-4">4.4.1</span> Merging from local branch</h4>
+<h3 id="orgheadline30"><span class="section-number-3">4.5</span> Merging</h3>
+<div class="outline-text-3" id="text-4-5">
+</div></section>
+<section id="slide-orgheadline28">
+<h4 id="orgheadline28"><span class="section-number-4">4.5.1</span> Merging from local branch</h4>
+</section>
+<section id="slide-orgheadline29">
+<h4 id="orgheadline29"><span class="section-number-4">4.5.2</span> Merging a pull request</h4>
 </section>
 <section id="slide-orgheadline31">
-<h4 id="orgheadline31"><span class="section-number-4">4.4.2</span> Merging a pull request</h4>
-</section>
-<section id="slide-orgheadline33">
-<h3 id="orgheadline33"><span class="section-number-3">4.5</span> Revert</h3>
-
+<h3 id="orgheadline31"><span class="section-number-3">4.6</span> Revert</h3>
 </section>
 </section>
 <section>
-<section id="slide-orgheadline35">
-<h2 id="orgheadline35"><span class="section-number-2">5</span> Goodie</h2>
+<section id="slide-orgheadline33">
+<h2 id="orgheadline33"><span class="section-number-2">5</span> Goodie</h2>
 <ul>
 <li>If you change the name of your repository to <code>username.github.io</code>, you can get your own personal page served by GitHub</li>
 <li>More info about GitHub Pages <a href="https://pages.github.com/">here</a>.</li>
