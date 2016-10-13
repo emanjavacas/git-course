@@ -20,9 +20,9 @@
 * Getting started
   
 #+attr_reveal: :frag (roll-in)
-- This is [[https://emanjavacas.github.io][me]].
+- This is [[https://github.com/emanjavacas][me]].
 
-- And these are [[https://www.github.com/emanjavacas/git-course][materials for the course]].
+- And these are [[https://www.github.com/emanjavacas/git-course][materials for today]].
 
 ** Get git
 
@@ -743,7 +743,6 @@ To solve the conflict you need:
 Revert is an operation that is less common than what you might think.
 The "git philosophy" encourage you to try things in a new branch and only merge if everything worked.
 #+END_NOTES
-
 
 
 * Goodie
