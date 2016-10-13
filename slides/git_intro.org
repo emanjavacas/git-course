@@ -673,7 +673,7 @@ Merge your colleague's pull request into your master branch
 #+reveal: split
 Go to your github project
 
-[[./img/new_pull_request_web.png]]
+[[./img/new_pull_request.png]]
 
 #+reveal: split
 Check pull request
