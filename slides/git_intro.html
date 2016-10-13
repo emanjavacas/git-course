@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Git Tutorial</title>
+<meta name="author" content="(Enrique Manjavacas)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/css/theme/league.css" id="theme"/>
+
+<link rel="stylesheet" href="./extra_git.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Git Tutorial</h1><h2 class="author">Enrique Manjavacas</h2><h2 class="date">14/10/2016</h2>
+</section>
+<section id="table-of-contents">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-orgheadline3">1. Getting started</a>
+<ul>
+<li><a href="#/slide-orgheadline1">1.1. Get git</a></li>
+<li><a href="#/slide-orgheadline2">1.2. [Optionally/Alternatively] install a Git client</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgheadline12">2. About Git</a>
+<ul>
+<li><a href="#/slide-orgheadline8">2.1. What is git?</a></li>
+<li><a href="#/slide-orgheadline11">2.2. What is not <code>git</code>?</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgheadline18">3. Basic Git Concepts</a></li>
+<li><a href="#/slide-orgheadline34">4. Hands-on Tutorial</a>
+<ul>
+<li><a href="#/slide-orgheadline25">4.1. Create your own repository</a></li>
+<li><a href="#/slide-orgheadline28">4.2. Commit changes</a></li>
+<li><a href="#/slide-orgheadline29">4.3. Branching</a></li>
+<li><a href="#/slide-orgheadline32">4.4. Merging</a></li>
+<li><a href="#/slide-orgheadline33">4.5. Revert</a></li>
+</ul>
+</li>
+<li><a href="#/slide-orgheadline35">5. Goodie</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section>
+<section id="slide-orgheadline3">
+<h2 id="orgheadline3"><span class="section-number-2">1</span> Getting started</h2>
+<ul>
+<li class="fragment roll-in">This is <a href="https://emanjavacas.github.io/">me</a>.</li>
+
+<li class="fragment roll-in">And these are <a href="https://www.github.com/emanjavacas/git-course">materials for the course</a>.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Get git</h3>
+<p>
+Follow the instructions for your OS <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.
+</p>
+
+</section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> [Optionally/Alternatively] install a Git client</h3>
+<p>
+See <a href="https://www.github.com/emanjavacas/git-course">Materials for the course</a> for links to different possibilities.
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h2 id="orgheadline12"><span class="section-number-2">2</span> About Git</h2>
+<div class="outline-text-2" id="text-2">
+</div></section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8"><span class="section-number-3">2.1</span> What is git?</h3>
+<p>
+&ldquo;Git is a free and <b>open source distributed version control system</b> designed to handle everything from small to very large projects with speed and efficiency&rdquo; (<a href="https://en.wikipedia.org/wiki/Git_(software)">Wikipedia</a>)
+</p>
+
+</section>
+<section>
+
+<p>
+A Version Control System (VCS) is a methodology or tool that&#x2026;
+</p>
+
+<ul>
+<li class="fragment roll-in">helps you <b>keep track of changes</b> you make to the files in your project</li>
+<li class="fragment roll-in">and allows you to <b>communicate and synchronize your changes</b> with other people.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline4">
+<h4 id="orgheadline4"><span class="section-number-4">2.1.1</span> History</h4>
+<ul>
+<li class="fragment roll-in">Developed by Linux Torvalds as a means to enable the development of the Linux Kernel     
+<ul>
+<li class="fragment roll-in"><a href="https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds">Interview with occassion of Git&rsquo;s 10th Year Anniversary</a></li>
+<li class="fragment roll-in">Inspired by BitKeeper (Distributed VCS that isn&rsquo;t open source)</li>
+
+</ul></li>
+
+<li class="fragment roll-in">Relatively recent in the ecosystem of VCS tools
+<ul>
+<li class="fragment roll-in"><a href="https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290">First git&rsquo;s commit 2005</a></li>
+<li class="fragment roll-in">Its main feature being that it is a <b>distributed</b> or <b>decentralized</b> system</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline5">
+<h4 id="orgheadline5"><span class="section-number-4">2.1.2</span> Why you need it?</h4>
+<ul>
+<li class="fragment roll-in">Because it is used by instructors in the study programme.</li>
+<li class="fragment roll-in">Because the need for collaborative tools is increasing and VCS are most powerful.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline6">
+<h4 id="orgheadline6"><span class="section-number-4">2.1.3</span> VCS vs. Collaborative Text Editors (GoogleDocs, etc.)</h4>
+<aside class="notes">
+<p>
+Check how many actually think Google-Docs/Dropbox is a good solution to version mananagement? 
+This section can be skipped if the audience is already convinced of the answer (NO).
+</p>
+
+</aside>
+
+</section>
+<section>
+<img src="./img/dropbox.png" style="margin-top: -100px">
+
+<p>
+<a href="https://www.dropbox.com/en/help/36">Source: Dropbox Help</a>
+</p>
+
+</section>
+<section>
+
+<p>
+Synchronized vs Asynchronized Solution to the problem of collaborative editing.
+</p>
+
+</section>
+<section>
+<blockquote nil>
+<p>
+&ldquo;A practice by which dispersed users are able to concurrently modify shared artifacts 
+with the guarantee that changes by different users will not automatically overwrite each other&rdquo; 
+(Altmanninger et al. 2009)
+</p>
+</blockquote>
+
+</section>
+<section>
+<p>
+<b>Collaborative Text Editors</b>
+</p>
+<ul>
+<li class="fragment roll-in">Pros
+<ul>
+<li class="fragment roll-in">Fast, real-time incorporation of changes.</li>
+
+</ul></li>
+
+<li class="fragment roll-in">Cons
+<ul>
+<li class="fragment roll-in">Impossible to work offline</li>
+<li class="fragment roll-in">No guarantees that change history reflects the real sequence of changes</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section>
+<p>
+<b>VCS</b>
+</p>
+<ul>
+<li class="fragment roll-in">Pros
+<ul>
+<li class="fragment roll-in">Documented change history</li>
+<li class="fragment roll-in">Unlimited in terms of participants</li>
+
+</ul></li>
+
+<li class="fragment roll-in">Cons
+<ul>
+<li class="fragment roll-in">Steep learning curve</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline7">
+<h4 id="orgheadline7"><span class="section-number-4">2.1.4</span> Take-away message</h4>
+<p>
+Trade-off between and simplicity.
+</p>
+<aside class="notes">
+<p>
+Currently, we are mostly at one very end.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11"><span class="section-number-3">2.2</span> What is not <code>git</code>?</h3>
+<ul>
+<li class="fragment roll-in">Trade-off between rigor (data-side) and easiness (UX-side).</li>
+<li class="fragment roll-in">Most users are limited to one very end.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline9">
+<h4 id="orgheadline9"><span class="section-number-4">2.2.1</span> git vs GitHub</h4>
+<ul>
+<li class="fragment roll-in">&ldquo;GitHub is a web-based <b>Git repository hosting service</b>, which offers all of the distributed revision control and source code management (SCM) functionality of Git as well as adding its own features.&rdquo; (<a href="https://en.wikipedia.org/wiki/GitHub">Wikipedia</a>) (but there are others, see BitBucket).</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline10">
+<h4 id="orgheadline10"><span class="section-number-4">2.2.2</span> A backup system</h4>
+<ul>
+<li class="fragment roll-in">While you could use git/GitHub for backing up, it <b>cannot handle large/binary files very well</b>.</li>
+
+</ul>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18"><span class="section-number-2">3</span> Basic Git Concepts</h2>
+<p>
+Let&rsquo;s introduce a bit of vocabulary (Last bit of me talking alone!)
+</p>
+
+<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">See <a src="https://www.github.com/emanjavacas/git-course">the repository README</a> for a glossary of terms</p>
+
+</section>
+<section id="slide-orgheadline14">
+<h4 id="orgheadline14"><span class="section-number-4">3.0.1</span> Repository</h4>
+<aside class="notes">
+<p>
+Repositories are always a copy
+</p>
+
+</aside>
+<p>
+All tracked files in your project plus the full history of changes (commits and branches).
+</p>
+
+</section>
+<section>
+<ol class="org-ol"><li><a id="orgheadline13"></a>Types of Repository<br  /><ul>
+<li class="fragment roll-in"><b>Local</b>
+       Repository hosted in your current machine, to which you can make changes.</li>
+<li class="fragment roll-in"><b>Remote</b>
+       Repository hosted in a different machine, to which you have access from your current machine.</li>
+
+</ul></li></ol>
+
+</section>
+<section id="slide-orgheadline15">
+<h4 id="orgheadline15"><span class="section-number-4">3.0.2</span> Working Tree (or directory)</h4>
+<ul>
+<li class="fragment roll-in">Current local view of the project (folder).</li>
+<li class="fragment roll-in">It can be:
+<ul>
+<li class="fragment roll-in">&ldquo;clean&rdquo; (Up to date with the tracked version)</li>
+<li class="fragment roll-in">&ldquo;dirty&rdquo; (Local changes haven&rsquo;t been registered yet)</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section>
+
+<p>
+Ways to change the working tree:
+</p>
+<ul>
+<li class="fragment roll-in">Switch back to a previous state of the project (revert)</li>
+<li class="fragment roll-in">Add a change to the current state (commit)</li>
+<li class="fragment roll-in">Moving to another (possibly new) branch (A.K.A. <code>checkout</code>)</li>
+<li class="fragment roll-in">Move to a &ldquo;future&rdquo; state of the project (e.g. pulling from remote changes)</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline16">
+<h4 id="orgheadline16"><span class="section-number-4">3.0.3</span> Commit</h4>
+<p>
+A snapshot including changes to previous states of the repository.
+</p>
+
+</section>
+<section id="slide-orgheadline17">
+<h4 id="orgheadline17"><span class="section-number-4">3.0.4</span> Branch</h4>
+<p>
+Any of the parallel states in the repository (a particular commit history).
+</p>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline34">
+<h2 id="orgheadline34"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
+<div class="outline-text-2" id="text-4">
+</div></section>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25"><span class="section-number-3">4.1</span> Create your own repository</h3>
+<p>
+For this tutorial, we are going to create a (very basic) resume homepage.
+</p>
+
+</section>
+<section>
+<p>
+First we need to download a template
+</p>
+
+<ul>
+<li class="fragment roll-in">Google for `free html resume template`</li>
+<li class="fragment roll-in">Pick one from <a href="http://trendytheme.net/20-best-free-html-resume-templates-to-download/">here</a></li>
+<li class="fragment roll-in">Download the one I picked from <a href="https://www.github.com/emanjavacas/resume/archive/v0.0.zip">here</a>.</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline19">
+<h4 id="orgheadline19"><span class="section-number-4">4.1.1</span> Create the remote repository (GitHub)</h4>
+<img src="./img/new_repo.png">
+
+</section>
+<section id="slide-orgheadline24">
+<h4 id="orgheadline24"><span class="section-number-4">4.1.2</span> Set local repository to track remote repository</h4>
+<div class="outline-text-4" id="text-4-1-2">
+</div><ol class="org-ol"><li><a id="orgheadline22"></a>Using the Command Line<br  /><ol class="org-ol"><li><a id="orgheadline20"></a>Initialize the repository<br  /><div class="org-src-container">
+
+<pre  class="src src-bash">$ git init
+Initialized empty Git repository<span style="color: #F0DFAF; font-weight: bold;"> in</span> /home/enrique/Documents/courses/git/resume
+</pre>
+</div></li>
+
+<li><a id="orgheadline21"></a>Set the remote<br  /><div class="org-src-container">
+
+<pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
+</pre>
+</div></li></ol></li>
+
+<li><a id="orgheadline23"></a>Using GitHub Desktop<br  /><p>
+Screenshot
+</p></li></ol>
+
+</section>
+<section id="slide-orgheadline28">
+<h3 id="orgheadline28"><span class="section-number-3">4.2</span> Commit changes</h3>
+</section>
+<section>
+<iframe width="300px" height="600px" src="flow.html"></iframe>
+
+</section>
+<section id="slide-orgheadline26">
+<h4 id="orgheadline26"><span class="section-number-4">4.2.1</span> Single commit</h4>
+<ul>
+<li class="fragment roll-in">Modify info</li>
+<li class="fragment roll-in">Git flow (add, commit)</li>
+<li class="fragment roll-in">Push</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline27">
+<h4 id="orgheadline27"><span class="section-number-4">4.2.2</span> Multiple commits</h4>
+<aside class="notes">
+<p>
+More realistic setup, 
+</p>
+
+</aside>
+
+<ul>
+<li class="fragment roll-in">Modify font-size</li>
+<li class="fragment roll-in">Git flow (add, commit)</li>
+<li class="fragment roll-in">Push</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline29">
+<h3 id="orgheadline29"><span class="section-number-3">4.3</span> Branching</h3>
+</section>
+<section id="slide-orgheadline32">
+<h3 id="orgheadline32"><span class="section-number-3">4.4</span> Merging</h3>
+<div class="outline-text-3" id="text-4-4">
+</div></section>
+<section id="slide-orgheadline30">
+<h4 id="orgheadline30"><span class="section-number-4">4.4.1</span> Merging from local branch</h4>
+</section>
+<section id="slide-orgheadline31">
+<h4 id="orgheadline31"><span class="section-number-4">4.4.2</span> Merging a pull request</h4>
+</section>
+<section id="slide-orgheadline33">
+<h3 id="orgheadline33"><span class="section-number-3">4.5</span> Revert</h3>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline35">
+<h2 id="orgheadline35"><span class="section-number-2">5</span> Goodie</h2>
+<ul>
+<li>If you change the name of your repository to <code>username.github.io</code>, you can get your own personal page served by GitHub</li>
+<li>More info about GitHub Pages <a href="https://pages.github.com/">here</a>.</li>
+
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/lib/js/head.min.js"></script>
+<script src="file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: 'c',
+rollingLinks: true,
+keyboard: true,
+overview: true,
+width: 1200,
+height: 800,
+margin: 0.10,
+minScale: 0.50,
+maxScale: 2.50,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'nil', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'file:///Users/quique/.emacs.d/lisp/reveal.js-3.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+});
+</script>
+</body>
+</html>
