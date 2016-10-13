@@ -47,22 +47,18 @@
 </ul>
 </li>
 <li><a href="#/slide-orgheadline18">3. Basic Git Concepts</a></li>
-<li><a href="#/slide-orgheadline33">4. Hands-on Tutorial</a>
+<li><a href="#/slide-orgheadline38">4. Hands-on Tutorial</a>
 <ul>
 <li><a href="#/slide-orgheadline22">4.1. Create your own repository</a></li>
 <li><a href="#/slide-orgheadline26">4.2. Commiting a single change</a></li>
 <li><a href="#/slide-orgheadline30">4.3. Commiting multiple changes</a></li>
-<li><a href="#/slide-orgheadline32">4.4. Branching</a></li>
+<li><a href="#/slide-orgheadline34">4.4. Branching</a></li>
+<li><a href="#/slide-orgheadline35">4.5. Merging from local branch</a></li>
+<li><a href="#/slide-orgheadline36">4.6. Merging a pull request</a></li>
+<li><a href="#/slide-orgheadline37">4.7. Revert</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orgheadline39">5. resume 299b6f9 Changed background</a>
-<ul>
-<li><a href="#/slide-orgheadline36">5.1. Merging from local branch</a></li>
-<li><a href="#/slide-orgheadline37">5.2. Merging a pull request</a></li>
-<li><a href="#/slide-orgheadline38">5.3. Revert</a></li>
-</ul>
-</li>
-<li><a href="#/slide-orgheadline40">6. Goodie</a></li>
+<li><a href="#/slide-orgheadline39">5. Goodie</a></li>
 </ul>
 </div>
 </div>
@@ -344,8 +340,8 @@ Any of the parallel states in the repository (a particular commit history).
 </section>
 </section>
 <section>
-<section id="slide-orgheadline33">
-<h2 id="orgheadline33"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
+<section id="slide-orgheadline38">
+<h2 id="orgheadline38"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
 <div class="outline-text-2" id="text-4">
 </div></section>
 <section id="slide-orgheadline22">
@@ -715,9 +711,11 @@ To https://github.com/emanjavacas/resume.git
 
 </ul>
 
-<p>
-<a href="./img/multiple_commited_gh">./img/multiple_commited_gh</a>
+
+<div class="figure">
+<p><img src="./img/multiple_commited_gh.png" alt="multiple_commited_gh.png" />
 </p>
+</div>
 
 
 </section>
@@ -739,8 +737,8 @@ To https://github.com/emanjavacas/resume.git
 </ul>
 
 </section>
-<section id="slide-orgheadline32">
-<h3 id="orgheadline32"><span class="section-number-3">4.4</span> Branching</h3>
+<section id="slide-orgheadline34">
+<h3 id="orgheadline34"><span class="section-number-3">4.4</span> Branching</h3>
 <p>
 We are going to edit the content in the &ldquo;resume&rdquo; tab
 </p>
@@ -792,20 +790,18 @@ Short version
 <li>See which branches are there</li>
 
 </ul>
-
 <p>
-#+BEGIN<sub>SRC</sub> bash
-$ git branch -v
+mag  #+BEGIN<sub>SRC</sub> bash
+  $ git branch -v
 </p>
 
 <p>
 master 0a7be54 Changed background
 </p>
-</section>
-</section>
-<section>
-<section id="slide-orgheadline39">
-<h2 id="orgheadline39"><span class="section-number-2">5</span> resume 299b6f9 Changed background</h2>
+<ul>
+<li>resume 299b6f9 Changed background</li>
+
+</ul>
 <p>
 #+END<sub>SRC</sub>
 </p>
@@ -826,8 +822,8 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 </div>
 
 </section>
-<section id="slide-orgheadline34">
-<h4 id="orgheadline34"><span class="section-number-4">5.0.1</span> From GitHub Desktop</h4>
+<section id="slide-orgheadline32">
+<h4 id="orgheadline32"><span class="section-number-4">4.4.2</span> From GitHub Desktop</h4>
 </section>
 <section>
 <ul>
@@ -863,8 +859,8 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 </p>
 
 </section>
-<section id="slide-orgheadline35">
-<h4 id="orgheadline35"><span class="section-number-4">5.0.2</span> Your turn</h4>
+<section id="slide-orgheadline33">
+<h4 id="orgheadline33"><span class="section-number-4">4.4.3</span> Your turn</h4>
 <ul>
 <li class="fragment roll-in">Create a branch (give it the name you prefer)</li>
 <li class="fragment roll-in">Switch to it (if you are not there yet)</li>
@@ -890,14 +886,14 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 </ul>
 
 </section>
+<section id="slide-orgheadline35">
+<h3 id="orgheadline35"><span class="section-number-3">4.5</span> Merging from local branch</h3>
+</section>
 <section id="slide-orgheadline36">
-<h3 id="orgheadline36"><span class="section-number-3">5.1</span> Merging from local branch</h3>
+<h3 id="orgheadline36"><span class="section-number-3">4.6</span> Merging a pull request</h3>
 </section>
 <section id="slide-orgheadline37">
-<h3 id="orgheadline37"><span class="section-number-3">5.2</span> Merging a pull request</h3>
-</section>
-<section id="slide-orgheadline38">
-<h3 id="orgheadline38"><span class="section-number-3">5.3</span> Revert</h3>
+<h3 id="orgheadline37"><span class="section-number-3">4.7</span> Revert</h3>
 <aside class="notes">
 <p>
 Revert is an operation that is less common than what you might think.
@@ -909,8 +905,8 @@ The &ldquo;git philosophy&rdquo; encourage you to try things in a new branch and
 </section>
 </section>
 <section>
-<section id="slide-orgheadline40">
-<h2 id="orgheadline40"><span class="section-number-2">6</span> Goodie</h2>
+<section id="slide-orgheadline39">
+<h2 id="orgheadline39"><span class="section-number-2">5</span> Goodie</h2>
 <ul>
 <li>If you change the name of your repository to <code>username.github.io</code>, you can get your own personal page served by GitHub</li>
 <li>More info about GitHub Pages <a href="https://pages.github.com/">here</a>.</li>

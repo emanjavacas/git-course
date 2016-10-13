@@ -451,7 +451,7 @@ To https://github.com/emanjavacas/resume.git
 #+reveal: split
 - Push
 
-[[./img/multiple_commited_gh]]
+[[./img/multiple_commited_gh.png]]
 
 
 *** Your turn
@@ -497,13 +497,12 @@ We are going to edit the content in the "resume" tab
 
 #+reveal: split
 - See which branches are there
-
-#+BEGIN_SRC bash
-$ git branch -v
-
+mag  #+BEGIN_SRC bash
+  $ git branch -v
+  
   master 0a7be54 Changed background
-* resume 299b6f9 Changed background
-#+END_SRC
+  * resume 299b6f9 Changed background
+  #+END_SRC
 
 #+reveal: split
 - Switch to a particular branch (magic!)
