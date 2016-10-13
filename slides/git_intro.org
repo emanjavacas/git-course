@@ -28,9 +28,9 @@
 
 Follow the instructions for your OS [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][here]].
 
-** [Optionally/Alternatively] install a Git client 
+*** [Optionally/Alternatively] install a Git client 
 
-See [[https://www.github.com/emanjavacas/git-course][Materials for the course]] for links to different possibilities.
+ See [[https://www.github.com/emanjavacas/git-course][Materials for the course]] for links to different possibilities.
 
 
 * About Git
@@ -274,7 +274,7 @@ Sync locally (set a local to track the remote)
   #+attr_reveal: :frag (roll-in)
   - Google for "~free html resume template~"
   - Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
-  - Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]].
+  - Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]]
 - Create a remote repository (github.com)
 - Set the local to track the remote
   
@@ -497,7 +497,7 @@ We are going to edit the content in the "resume" tab
 
 #+reveal: split
 - See which branches are there
-mag  #+BEGIN_SRC bash
+  #+BEGIN_SRC bash
   $ git branch -v
   
   master 0a7be54 Changed background
@@ -506,12 +506,11 @@ mag  #+BEGIN_SRC bash
 
 #+reveal: split
 - Switch to a particular branch (magic!)
+  #+BEGIN_SRC bash
+  $ git checkout master
 
-#+BEGIN_SRC bash
-$ git checkout master
-
-Switched to branch 'resume'
-#+END_SRC
+  Switched to branch 'resume'
+  #+END_SRC
 
 *** From GitHub Desktop
 
@@ -525,7 +524,7 @@ Switched to branch 'resume'
 
 #+reveal: split
 - Select a branch
-[[./img/switch_to_branch]]
+[[./img/switch_to_branch_gh.png]]
 
 *** Your turn
 
@@ -533,24 +532,119 @@ Switched to branch 'resume'
 - Create a branch (give it the name you prefer)
 - Switch to it (if you are not there yet)
 - Make local changes (as shown previously) & Commit
-#+reveal: split
-[[./img/branch_changes.png]]
 
 #+reveal: split
-- Create a branch (give it the name you prefer)
-- Switch to it (if you are not there yet)
-- Make local changes (as shown previously) & Commit
+- Example of changes:
+[[./img/branch_changes_gh.png]]
+
+#+reveal: split
+#+attr_reveal: :frag (roll-in)
 - Push (and see the results in your remote)
+- Switch branches and see how the Working Tree changes accordingly
 
 ** Merging from local branch
 # Objective: merging is just a commit, familiarize with the merging tool/syntax
 # Situation: single
 # Workflow: ...
 
+*** From the command line
+#+attr_reveal: :frag (roll-in)
+- Compare branches
+  #+BEGIN_SRC bash
+  $ git diff resume master
+  #+END_SRC
+
+#+reveal: split
+[[./img/diff_branches.png]]
+
+#+reveal: split
+- Merge target branch (resume) into receiving branch (master)
+  #+attr_reveal: :frag (roll-in)
+  - Switch to receiving branch (master)
+    #+BEGIN_SRC bash
+    git checkout master
+    #+END_SRC
+    
+  - Do the merge (resume gets merged into master)
+    #+BEGIN_SRC bash
+    $ git merge resume
+
+    Updating 299b6f9..5032375
+    Fast-forward
+     index.html | 24 ++++--------------------
+     1 file changed, 4 insertions(+), 20 deletions(-)
+    #+END_SRC
+
+  - Push
+    #+BEGIN_SRC bash
+    $ git push
+
+    
+    #+END_SRC
+
+*** From GitHub Desktop
+
+#+reveal: split
+- Switch to target branch (in our case, master)
+[[./img/switch_to_master_gh.png]]
+
+#+reveal: split
+- Select "merge from resume"
+[[./img/merge_from_resume_gh.png]]
+
+#+reveal: split
+- A Merge is just a commit
+[[./img/merge_commit_gh.png]]
+
+#+reveal: split
+- Push (Sync)
+
+*** Your turn
+#+attr_reveal: :frag (roll-in)
+- Switch to receiving branch 
+- Merge from branch "resume"
+- Push
+
 ** Merging a pull request
 # Objective: automerging, manual merging from a remote
 # Situation: couples, forking from each other, submitting pull requests, merging
 # Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
+
+#+BEGIN_NOTES
+Merging locally is very useful but is not the only type of merge
+#+END_NOTES
+
+#+attr_reveal: :frag (roll-in)
+- Merges are not restricted to local branches. You can also merge:
+  #+attr_reveal: :frag (roll-in)
+  - A branch in your remote (an "origin" branch)
+  - A branch in someone else's remote - fork source project (an "upstream" branch).
+  - A branch of someone's fork of your project. Pull Request.
+
+#+reveal: split
+Now you are going to merge a pull request that your colleague is going to submit.
+
+*** Your turn
+
+#+reveal: split
+Fork your colleague's project and clone it locally
+[[./fork_gh.png]]
+
+#+reveal: split
+Introduce (conspicuous) typos in your index.html file (push them too)
+
+#+reveal: split
+Diff your local fork from the upstream to see the typos
+
+#+reveal: split
+Modify the typos
+
+#+reveal: split
+Issue a pull request
+
+#+reveal: split
+Merge your colleague's pull request into your master branch
+
 
 ** Revert
 # Objective: learn how to revert pushed commits (revert) and uncommited changes (stash)
@@ -558,6 +652,8 @@ Switched to branch 'resume'
   # for an explanation of revert workflows in three different scenarios
 # Situation: single
 # Workflow: ...
+*** From GitHub Desktop
+
 
 #+BEGIN_NOTES
 Revert is an operation that is less common than what you might think.

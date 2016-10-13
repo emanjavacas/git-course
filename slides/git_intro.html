@@ -36,8 +36,7 @@
 <ul>
 <li><a href="#/slide-orgheadline3">1. Getting started</a>
 <ul>
-<li><a href="#/slide-orgheadline1">1.1. Get git</a></li>
-<li><a href="#/slide-orgheadline2">1.2. [Optionally/Alternatively] install a Git client</a></li>
+<li><a href="#/slide-orgheadline2">1.1. Get git</a></li>
 </ul>
 </li>
 <li><a href="#/slide-orgheadline12">2. About Git</a>
@@ -47,18 +46,18 @@
 </ul>
 </li>
 <li><a href="#/slide-orgheadline18">3. Basic Git Concepts</a></li>
-<li><a href="#/slide-orgheadline38">4. Hands-on Tutorial</a>
+<li><a href="#/slide-orgheadline43">4. Hands-on Tutorial</a>
 <ul>
 <li><a href="#/slide-orgheadline22">4.1. Create your own repository</a></li>
 <li><a href="#/slide-orgheadline26">4.2. Commiting a single change</a></li>
 <li><a href="#/slide-orgheadline30">4.3. Commiting multiple changes</a></li>
 <li><a href="#/slide-orgheadline34">4.4. Branching</a></li>
-<li><a href="#/slide-orgheadline35">4.5. Merging from local branch</a></li>
-<li><a href="#/slide-orgheadline36">4.6. Merging a pull request</a></li>
-<li><a href="#/slide-orgheadline37">4.7. Revert</a></li>
+<li><a href="#/slide-orgheadline38">4.5. Merging from local branch</a></li>
+<li><a href="#/slide-orgheadline40">4.6. Merging a pull request</a></li>
+<li><a href="#/slide-orgheadline42">4.7. Revert</a></li>
 </ul>
 </li>
-<li><a href="#/slide-orgheadline39">5. Goodie</a></li>
+<li><a href="#/slide-orgheadline44">5. Goodie</a></li>
 </ul>
 </div>
 </div>
@@ -75,15 +74,15 @@
 </ul>
 
 </section>
-<section id="slide-orgheadline1">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Get git</h3>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2"><span class="section-number-3">1.1</span> Get git</h3>
 <p>
 Follow the instructions for your OS <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">here</a>.
 </p>
 
 </section>
-<section id="slide-orgheadline2">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> [Optionally/Alternatively] install a Git client</h3>
+<section id="slide-orgheadline1">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> [Optionally/Alternatively] install a Git client</h4>
 <p>
 See <a href="https://www.github.com/emanjavacas/git-course">Materials for the course</a> for links to different possibilities.
 </p>
@@ -340,8 +339,8 @@ Any of the parallel states in the repository (a particular commit history).
 </section>
 </section>
 <section>
-<section id="slide-orgheadline38">
-<h2 id="orgheadline38"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
+<section id="slide-orgheadline43">
+<h2 id="orgheadline43"><span class="section-number-2">4</span> Hands-on Tutorial</h2>
 <div class="outline-text-2" id="text-4">
 </div></section>
 <section id="slide-orgheadline22">
@@ -418,7 +417,7 @@ Track the remote
 <ul>
 <li class="fragment roll-in">Google for &ldquo;<code>free html resume template</code>&rdquo;</li>
 <li class="fragment roll-in">Pick one from <a href="http://trendytheme.net/20-best-free-html-resume-templates-to-download/">here</a></li>
-<li class="fragment roll-in">Download the one I picked from <a href="https://www.github.com/emanjavacas/resume/archive/v0.0.zip">here</a>.</li>
+<li class="fragment roll-in">Download the one I picked from <a href="https://www.github.com/emanjavacas/resume/archive/v0.0.zip">here</a></li>
 
 </ul></li>
 <li class="fragment roll-in">Create a remote repository (github.com)</li>
@@ -787,39 +786,35 @@ Short version
 </section>
 <section>
 <ul>
-<li>See which branches are there</li>
-
-</ul>
-<p>
-mag  #+BEGIN<sub>SRC</sub> bash
-  $ git branch -v
+<li><p>
+See which branches are there
 </p>
+<div class="org-src-container">
 
-<p>
+<pre  class="src src-bash">$ git branch -v
+
 master 0a7be54 Changed background
-</p>
-<ul>
-<li>resume 299b6f9 Changed background</li>
+* resume 299b6f9 Changed background
+</pre>
+</div></li>
 
 </ul>
-<p>
-#+END<sub>SRC</sub>
-</p>
 
 </section>
 <section>
 <ul>
-<li>Switch to a particular branch (magic!)</li>
-
-</ul>
-
+<li><p>
+Switch to a particular branch (magic!)
+</p>
 <div class="org-src-container">
 
 <pre  class="src src-bash">$ git checkout master
 
 Switched to branch <span style="color: #CC9393;">'resume'</span>
 </pre>
-</div>
+</div></li>
+
+</ul>
 
 </section>
 <section id="slide-orgheadline32">
@@ -854,9 +849,11 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 <li>Select a branch</li>
 
 </ul>
-<p>
-<a href="./img/switch_to_branch">./img/switch_to_branch</a>
+
+<div class="figure">
+<p><img src="./img/switch_to_branch_gh.png" alt="switch_to_branch_gh.png" />
 </p>
+</div>
 
 </section>
 <section id="slide-orgheadline33">
@@ -867,33 +864,226 @@ Switched to branch <span style="color: #CC9393;">'resume'</span>
 <li class="fragment roll-in">Make local changes (as shown previously) &amp; Commit</li>
 
 </ul>
+
 </section>
 <section>
+<ul>
+<li>Example of changes:</li>
+
+</ul>
 
 <div class="figure">
-<p><img src="./img/branch_changes.png" alt="branch_changes.png" />
+<p><img src="./img/branch_changes_gh.png" alt="branch_changes_gh.png" />
 </p>
 </div>
 
 </section>
 <section>
 <ul>
-<li>Create a branch (give it the name you prefer)</li>
-<li>Switch to it (if you are not there yet)</li>
-<li>Make local changes (as shown previously) &amp; Commit</li>
-<li>Push (and see the results in your remote)</li>
+<li class="fragment roll-in">Push (and see the results in your remote)</li>
+<li class="fragment roll-in">Switch branches and see how the Working Tree changes accordingly</li>
 
 </ul>
 
 </section>
+<section id="slide-orgheadline38">
+<h3 id="orgheadline38"><span class="section-number-3">4.5</span> Merging from local branch</h3>
+<div class="outline-text-3" id="text-4-5">
+</div></section>
 <section id="slide-orgheadline35">
-<h3 id="orgheadline35"><span class="section-number-3">4.5</span> Merging from local branch</h3>
+<h4 id="orgheadline35"><span class="section-number-4">4.5.1</span> From the command line</h4>
+<ul>
+<li class="fragment roll-in"><p>
+Compare branches
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git diff resume master
+</pre>
+</div></li>
+
+</ul>
+
+</section>
+<section>
+
+<div class="figure">
+<p><img src="./img/diff_branches.png" alt="diff_branches.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Merge target branch (resume) into receiving branch (master)
+<ul>
+<li class="fragment roll-in"><p>
+Switch to receiving branch (master)
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">git checkout master
+</pre>
+</div></li>
+
+<li class="fragment roll-in"><p>
+Do the merge (resume gets merged into master)
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git merge resume
+
+Updating 299b6f9..5032375
+Fast-forward
+ index.html | 24 ++++--------------------
+ 1 file changed, 4 insertions(+), 20 deletions(-)
+</pre>
+</div></li>
+
+<li class="fragment roll-in"><p>
+Push
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git push
+</pre>
+</div></li>
+
+</ul></li>
+
+</ul>
+
 </section>
 <section id="slide-orgheadline36">
-<h3 id="orgheadline36"><span class="section-number-3">4.6</span> Merging a pull request</h3>
+<h4 id="orgheadline36"><span class="section-number-4">4.5.2</span> From GitHub Desktop</h4>
+</section>
+<section>
+<ul>
+<li>Switch to target branch (in our case, master)</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="./img/switch_to_master_gh.png" alt="switch_to_master_gh.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Select &ldquo;merge from resume&rdquo;</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="./img/merge_from_resume_gh.png" alt="merge_from_resume_gh.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>A Merge is just a commit</li>
+
+</ul>
+
+<div class="figure">
+<p><img src="./img/merge_commit_gh.png" alt="merge_commit_gh.png" />
+</p>
+</div>
+
+</section>
+<section>
+<ul>
+<li>Push (Sync)</li>
+
+</ul>
+
 </section>
 <section id="slide-orgheadline37">
-<h3 id="orgheadline37"><span class="section-number-3">4.7</span> Revert</h3>
+<h4 id="orgheadline37"><span class="section-number-4">4.5.3</span> Your turn</h4>
+<ul>
+<li class="fragment roll-in">Switch to receiving branch</li>
+<li class="fragment roll-in">Merge from branch &ldquo;resume&rdquo;</li>
+<li class="fragment roll-in">Push</li>
+
+</ul>
+
+</section>
+<section id="slide-orgheadline40">
+<h3 id="orgheadline40"><span class="section-number-3">4.6</span> Merging a pull request</h3>
+<aside class="notes">
+<p>
+Merging locally is very useful but is not the only type of merge
+</p>
+
+</aside>
+
+<ul>
+<li class="fragment roll-in">Merges are not restricted to local branches. You can also merge:
+<ul>
+<li class="fragment roll-in">A branch in your remote (an &ldquo;origin&rdquo; branch)</li>
+<li class="fragment roll-in">A branch in someone else&rsquo;s remote - fork source project (an &ldquo;upstream&rdquo; branch).</li>
+<li class="fragment roll-in">A branch of someone&rsquo;s fork of your project. Pull Request.</li>
+
+</ul></li>
+
+</ul>
+
+</section>
+<section>
+<p>
+Now you are going to merge a pull request that your colleague is going to submit.
+</p>
+
+</section>
+<section id="slide-orgheadline39">
+<h4 id="orgheadline39"><span class="section-number-4">4.6.1</span> Your turn</h4>
+</section>
+<section>
+<p>
+Fork your colleague&rsquo;s project and clone it locally
+<img src="./fork_gh.png" alt="fork_gh.png" />
+</p>
+
+</section>
+<section>
+<p>
+Introduce (conspicuous) typos in your index.html file (push them too)
+</p>
+
+</section>
+<section>
+<p>
+Diff your local fork from the upstream to see the typos
+</p>
+
+</section>
+<section>
+<p>
+Modify the typos
+</p>
+
+</section>
+<section>
+<p>
+Issue a pull request
+</p>
+
+</section>
+<section>
+<p>
+Merge your colleague&rsquo;s pull request into your master branch
+</p>
+
+
+</section>
+<section id="slide-orgheadline42">
+<h3 id="orgheadline42"><span class="section-number-3">4.7</span> Revert</h3>
+<div class="outline-text-3" id="text-4-7">
+</div></section>
+<section id="slide-orgheadline41">
+<h4 id="orgheadline41"><span class="section-number-4">4.7.1</span> From GitHub Desktop</h4>
 <aside class="notes">
 <p>
 Revert is an operation that is less common than what you might think.
@@ -905,8 +1095,8 @@ The &ldquo;git philosophy&rdquo; encourage you to try things in a new branch and
 </section>
 </section>
 <section>
-<section id="slide-orgheadline39">
-<h2 id="orgheadline39"><span class="section-number-2">5</span> Goodie</h2>
+<section id="slide-orgheadline44">
+<h2 id="orgheadline44"><span class="section-number-2">5</span> Goodie</h2>
 <ul>
 <li>If you change the name of your repository to <code>username.github.io</code>, you can get your own personal page served by GitHub</li>
 <li>More info about GitHub Pages <a href="https://pages.github.com/">here</a>.</li>
