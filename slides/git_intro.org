@@ -256,6 +256,21 @@ Track the remote
   $ git remote add origin https://github.com/emanjavacas/resume.git
   #+END_SRC
 
+#+reveal: split
+Add files to the repository
+
+  #+BEGIN_SRC bash
+  $ git add --all
+  #+END_SRC
+
+#+reveal: split
+Commit changes to the remote
+
+  #+BEGIN_SRC bash
+  $ git push -u origin master
+  #+END_SRC
+
+
 *** Using GitHub Desktop
 
 #+reveal: split
