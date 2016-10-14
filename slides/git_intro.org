@@ -370,7 +370,6 @@ Push (sync)
 - Add & Commit
 - Push
 
-
 ** Commiting multiple changes
 # Objective: Do local changes, group commits and push them separatedly
 # Situation: single
@@ -638,95 +637,157 @@ Now you are going to merge a pull request that your colleague is going to submit
 
 *** Your turn
 #+reveal: split
-Fork your colleague's project and clone it locally
+Fork your colleague's project
 
-[[./fork_gh.png]]
+#+BEGIN_HTML
+<img src="./img/fork_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
-[[./img/clone_fork.png]]
+Clone it locally
+
+#+BEGIN_HTML
+<img src="./img/clone_fork_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 Introduce (conspicuous) typos in your local index.html file (push them too)
-
-[[./img/typos_gh.png]]
+#+BEGIN_HTML
+<img src="./img/typos_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
-Pull and merge from your colleague's upstream fork to see the typos
+Pull from your colleague's upstream fork
 
-[[./img/merge_upstream.png]]
+#+BEGIN_HTML
+<img src="./img/merge_upstream.png" class="stretch">
+#+END_HTML
 
-[[./img/merge_upstream_changes.png]]
+#+reveal: split
+And merge it to see the typos
+
+#+BEGIN_HTML
+<img src="./img/merge_upstream_changes.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 Modify the typos and commit
 
-[[./img/fixed_typos_gh.png]]
+#+BEGIN_HTML
+<img src="./img/fixed_typos_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 Issue a pull request
 
-[[./img/pull_request_gh.png]]
+#+BEGIN_HTML
+<img src="./img/pull_request_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 Merge your colleague's pull request into your master branch
 
 #+reveal: split
-Go to your github project
+1. Go to your github project
 
-[[./img/new_pull_request.png]]
-
-#+reveal: split
-Check pull request
-
-[[./img/incoming_pull_request_web.png]]
+#+BEGIN_HTML
+<img src="./img/new_pull_request.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
-Accept incoming pull request
+2. Check pull request
 
-[[./img/merge_pull_request_web.png]]
+#+BEGIN_HTML
+<img src="./img/incoming_pull_request_web.png" class="stretch">
+#+END_HTML
+
+#+reveal: split
+3. Accept incoming pull request
+
+#+BEGIN_HTML
+<img src="./img/merge_pull_request_web.png" class="stretch">
+#+END_HTML
 
 ** Merging a conflicting pull request
 # Objective: manual merging from a remote
 # Situation: couples, forking from each other, submitting pull requests, merging
 # Workflow: every one pushes typos to their repositories; partner forks, fixes and submits pull-request; everyone merges pull-request
 
-That was easy, but sometimes merging doesn't work automatically. Let's see how.
+That was easy, but sometimes merging doesn't work automatically.
+#+BEGIN_HTML
+<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">Explanation of git automerge algorithm <a src="https://www.quora.com/How-does-Git-merge-work/answer/Anders-Kaseorg?srid=CxI0">here</a>.</p>
+#+END_HTML
 
 #+reveal: split
-Modify your local repository
+We are going to do the following
+#+attr_reveal: :frag (roll-in)
+- Introduce changes in our own local repository
+- Introduce conflicting changes in a branch
+- Attempt to merge (failing)
+- Solve the conflict & merge
 
 #+reveal: split
-Modify your fork of your colleague
+Modify your local repository (change the Twitter handle)
+#+BEGIN_HTML
+<img src="./img/local_change_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
-Issue pull request
+Also modify your local copy of the repo you forked from your colleague (introduce a conflict)
+#+BEGIN_HTML
+<img src="./img/conflicting_commit.png" class="stretch">
+#+END_HTML
+
+#+reveal: split
+Issue pull request to your colleagues with your conflicting changes
+#+BEGIN_HTML
+<img src="./img/conflicting_pull_request_gh.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
 Check your colleague's incoming pull request
+#+BEGIN_HTML
+<img src="./img/conflicting_pull_request_web.png" class="stretch">
+#+END_HTML
 
 #+reveal: split
-To solve the conflict you need:
+To proceed you need a command line (use GitHub Desktop built-in):
 
 #+attr_reveal: :frag (roll-in)
 - Clone your colleague's fork branch into your project
   #+attr_reveal: :frag (roll-in)
-  - Create a new branch 
+  - Create a local branch to pull your colleague's fork branch to 
     #+BEGIN_SRC bash
-    $ git checkout yourcolleague-branch local-branch-name
+    $ git checkout -b yourcolleagueusername-branch starting-branch
     #+END_SRC
     
-  - Pull from the remote branch
+  - Pull from the remote branch into your local branch
     #+BEGIN_SRC bash
-    $ git pull https://github.com/yourcolleage/resume.git local-branch-name
+    $ git pull https://github.com/yourcolleageusername/resume.git branch
     #+END_SRC
 
-- Solve the conflict
+- Attempt to merge into your local branch
   #+attr_reveal: :frag (roll-in)
-  - Checkout the new local branch
+  - Switch to the target branch
     #+BEGIN_SRC bash
-    $ git checkout local-branch-name
+    $ git checkout starting-branch
+    #+END_SRC
+    
+  - Attempt merge
+    #+BEGIN_SRC bash
+    $ git merge yourcolleaguesusername-branch
     #+END_SRC
 
+#+reveal: split
+Conflict syntax
+
+#+BEGIN_HTML
+<img src="./img/edit_merge_conflict.png" class="stretch">
+#+END_HTML
+
+#+reveal: split
+Solve the conflict
+  #+attr_reveal: :frag (roll-in)
   - Edit the conflicted file
   - Commit and push the changed file
 
@@ -737,12 +798,13 @@ To solve the conflict you need:
 # Situation: single
 # Workflow: ...
 
+Revert is an operation that is less common than what you might think.
+
+The "git philosophy" encourage you to try things in a new branch and only merge if everything worked.
+
 *** From GitHub Desktop
 
-#+BEGIN_NOTES
-Revert is an operation that is less common than what you might think.
-The "git philosophy" encourage you to try things in a new branch and only merge if everything worked.
-#+END_NOTES
+- Use the revert functionality
 
 
 * Goodie

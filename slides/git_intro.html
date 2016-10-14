@@ -561,7 +561,6 @@ Push (sync)
 
 </ul>
 
-
 </section>
 <section id="slide-orgheadline30">
 <h3 id="orgheadline30"><span class="section-number-3">4.3</span> Commiting multiple changes</h3>
@@ -1010,52 +1009,41 @@ Now you are going to merge a pull request that your colleague is going to submit
 </section>
 <section>
 <p>
-Fork your colleague&rsquo;s project and clone it locally
+Fork your colleague&rsquo;s project
 </p>
 
-
-<div class="figure">
-<p><img src="./fork_gh.png" alt="fork_gh.png" />
-</p>
-</div>
+<img src="./img/fork_gh.png" class="stretch">
 
 </section>
 <section>
-
-<div class="figure">
-<p><img src="./img/clone_fork.png" alt="clone_fork.png" />
+<p>
+Clone it locally
 </p>
-</div>
+
+<img src="./img/clone_fork_gh.png" class="stretch">
 
 </section>
 <section>
 <p>
 Introduce (conspicuous) typos in your local index.html file (push them too)
 </p>
-
-
-<div class="figure">
-<p><img src="./img/typos_gh.png" alt="typos_gh.png" />
-</p>
-</div>
+<img src="./img/typos_gh.png" class="stretch">
 
 </section>
 <section>
 <p>
-Pull and merge from your colleague&rsquo;s upstream fork to see the typos
+Pull from your colleague&rsquo;s upstream fork
 </p>
 
+<img src="./img/merge_upstream.png" class="stretch">
 
-<div class="figure">
-<p><img src="./img/merge_upstream.png" alt="merge_upstream.png" />
+</section>
+<section>
+<p>
+And merge it to see the typos
 </p>
-</div>
 
-
-<div class="figure">
-<p><img src="./img/merge_upstream_changes.png" alt="merge_upstream_changes.png" />
-</p>
-</div>
+<img src="./img/merge_upstream_changes.png" class="stretch">
 
 </section>
 <section>
@@ -1063,11 +1051,7 @@ Pull and merge from your colleague&rsquo;s upstream fork to see the typos
 Modify the typos and commit
 </p>
 
-
-<div class="figure">
-<p><img src="./img/fixed_typos_gh.png" alt="fixed_typos_gh.png" />
-</p>
-</div>
+<img src="./img/fixed_typos_gh.png" class="stretch">
 
 </section>
 <section>
@@ -1075,11 +1059,7 @@ Modify the typos and commit
 Issue a pull request
 </p>
 
-
-<div class="figure">
-<p><img src="./img/pull_request_gh.png" alt="pull_request_gh.png" />
-</p>
-</div>
+<img src="./img/pull_request_gh.png" class="stretch">
 
 </section>
 <section>
@@ -1089,132 +1069,170 @@ Merge your colleague&rsquo;s pull request into your master branch
 
 </section>
 <section>
-<p>
-Go to your github project
-</p>
+<ol>
+<li>Go to your github project</li>
 
+</ol>
 
-<div class="figure">
-<p><img src="./img/new_pull_request.png" alt="new_pull_request.png" />
-</p>
-</div>
+<img src="./img/new_pull_request.png" class="stretch">
 
 </section>
 <section>
-<p>
-Check pull request
-</p>
+<ol>
+<li>Check pull request</li>
 
+</ol>
 
-<div class="figure">
-<p><img src="./img/incoming_pull_request_web.png" alt="incoming_pull_request_web.png" />
-</p>
-</div>
+<img src="./img/incoming_pull_request_web.png" class="stretch">
 
 </section>
 <section>
-<p>
-Accept incoming pull request
-</p>
+<ol>
+<li>Accept incoming pull request</li>
 
+</ol>
 
-<div class="figure">
-<p><img src="./img/merge_pull_request_web.png" alt="merge_pull_request_web.png" />
-</p>
-</div>
+<img src="./img/merge_pull_request_web.png" class="stretch">
 
 </section>
 <section id="slide-orgheadline41">
 <h3 id="orgheadline41"><span class="section-number-3">4.7</span> Merging a conflicting pull request</h3>
 <p>
-That was easy, but sometimes merging doesn&rsquo;t work automatically. Let&rsquo;s see how.
+That was easy, but sometimes merging doesn&rsquo;t work automatically.
 </p>
+<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">Explanation of git automerge algorithm <a src="https://www.quora.com/How-does-Git-merge-work/answer/Anders-Kaseorg?srid=CxI0">here</a>.</p>
 
 </section>
 <section>
 <p>
-Modify your local repository
+We are going to do the following
 </p>
+<ul>
+<li class="fragment roll-in">Introduce changes in our own local repository</li>
+<li class="fragment roll-in">Introduce conflicting changes in a branch</li>
+<li class="fragment roll-in">Attempt to merge (failing)</li>
+<li class="fragment roll-in">Solve the conflict &amp; merge</li>
+
+</ul>
 
 </section>
 <section>
 <p>
-Modify your fork of your colleague
+Modify your local repository (change the Twitter handle)
 </p>
+<img src="./img/local_change_gh.png" class="stretch">
 
 </section>
 <section>
 <p>
-Issue pull request
+Also modify your local copy of the repo you forked from your colleague (introduce a conflict)
 </p>
+<img src="./img/conflicting_commit.png" class="stretch">
+
+</section>
+<section>
+<p>
+Issue pull request to your colleagues with your conflicting changes
+</p>
+<img src="./img/conflicting_pull_request_gh.png" class="stretch">
 
 </section>
 <section>
 <p>
 Check your colleague&rsquo;s incoming pull request
 </p>
+<img src="./img/conflicting_pull_request_web.png" class="stretch">
 
 </section>
 <section>
 <p>
-To solve the conflict you need:
+To proceed you need a command line (use GitHub Desktop built-in):
 </p>
 
 <ul>
 <li class="fragment roll-in">Clone your colleague&rsquo;s fork branch into your project
 <ul>
 <li class="fragment roll-in"><p>
-Create a new branch 
+Create a local branch to pull your colleague&rsquo;s fork branch to 
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-bash">$ git checkout yourcolleague-branch local-branch-name
+<pre  class="src src-bash">$ git checkout -b yourcolleagueusername-branch starting-branch
 </pre>
 </div></li>
 
 <li class="fragment roll-in"><p>
-Pull from the remote branch
+Pull from the remote branch into your local branch
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-bash">$ git pull https://github.com/yourcolleage/resume.git local-branch-name
+<pre  class="src src-bash">$ git pull https://github.com/yourcolleageusername/resume.git branch
 </pre>
 </div></li>
 
 </ul></li>
 
-<li class="fragment roll-in">Solve the conflict
+<li class="fragment roll-in">Attempt to merge into your local branch
 <ul>
 <li class="fragment roll-in"><p>
-Checkout the new local branch
+Switch to the target branch
 </p>
 <div class="org-src-container">
 
-<pre  class="src src-bash">$ git checkout local-branch-name
+<pre  class="src src-bash">$ git checkout starting-branch
 </pre>
 </div></li>
 
-<li class="fragment roll-in">Edit the conflicted file</li>
-<li class="fragment roll-in">Commit and push the changed file</li>
+<li class="fragment roll-in"><p>
+Attempt merge
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git merge yourcolleaguesusername-branch
+</pre>
+</div></li>
 
 </ul></li>
 
 </ul>
 
 </section>
+<section>
+<p>
+Conflict syntax
+</p>
+
+<img src="./img/edit_merge_conflict.png" class="stretch">
+
+</section>
+<section>
+<p>
+Solve the conflict
+</p>
+<ul>
+<li class="fragment roll-in">Edit the conflicted file</li>
+<li class="fragment roll-in">Commit and push the changed file</li>
+
+</ul>
+
+</section>
 <section id="slide-orgheadline43">
 <h3 id="orgheadline43"><span class="section-number-3">4.8</span> Revert</h3>
-<div class="outline-text-3" id="text-4-8">
-</div></section>
-<section id="slide-orgheadline42">
-<h4 id="orgheadline42"><span class="section-number-4">4.8.1</span> From GitHub Desktop</h4>
-<aside class="notes">
 <p>
 Revert is an operation that is less common than what you might think.
+</p>
+
+<p>
 The &ldquo;git philosophy&rdquo; encourage you to try things in a new branch and only merge if everything worked.
 </p>
 
-</aside>
+</section>
+<section id="slide-orgheadline42">
+<h4 id="orgheadline42"><span class="section-number-4">4.8.1</span> From GitHub Desktop</h4>
+<ul>
+<li>Use the revert functionality</li>
+
+</ul>
 
 
 </section>
