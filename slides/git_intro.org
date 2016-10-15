@@ -224,8 +224,6 @@ Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
 For this tutorial, we are going to create a (very basic) resume homepage.
 
-*** Using the Command Line
-
 #+reveal: split
 Create the remote
 
@@ -240,6 +238,8 @@ Sync locally (set a local to track the remote)
 <img src="./img/new_repo_setup_gh.png">
 #+END_HTML
 
+*** Using the Command Line
+
 #+reveal: split
 Initialize the repository
 
@@ -250,17 +250,17 @@ Initialize the repository
   #+END_SRC
 
 #+reveal: split
-Track the remote
-
-  #+BEGIN_SRC bash
-  $ git remote add origin https://github.com/emanjavacas/resume.git
-  #+END_SRC
-
-#+reveal: split
 Add files to the repository
 
   #+BEGIN_SRC bash
   $ git add --all
+  #+END_SRC
+
+#+reveal: split
+Track the remote
+
+  #+BEGIN_SRC bash
+  $ git remote add origin https://github.com/emanjavacas/resume.git
   #+END_SRC
 
 #+reveal: split
@@ -270,17 +270,18 @@ Commit changes to the remote
   $ git push -u origin master
   #+END_SRC
 
-
 *** Using GitHub Desktop
 
 #+reveal: split
+Clone the remote
 #+BEGIN_HTML
-<img src="./img/new_repo_gh1.png">
+<img src="./img/clone_remote_gh.png">
 #+END_HTML
 
 #+reveal: split
+Alternatively, click on Set up in Desktop (same effect)
 #+BEGIN_HTML
-<img src="./img/new_repo_gh2.png">
+<img src="./img/new_repo_setup_gh.png">
 #+END_HTML
 
 *** Your turn
@@ -292,8 +293,9 @@ Commit changes to the remote
   - Pick one from [[http://trendytheme.net/20-best-free-html-resume-templates-to-download/][here]]
   - Download the one I picked from [[https://www.github.com/emanjavacas/resume/archive/v0.0.zip][here]]
 - Create a remote repository (github.com)
-- Set the local to track the remote
-  
+- Create a local and set it to track the remote (i.e. clone the remote)
+- Populate the local repository with the template files
+
 ** Commiting a single change
 # Objective: Do some local changes, commit and push
 # Situation: single

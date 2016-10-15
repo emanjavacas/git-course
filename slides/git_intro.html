@@ -345,9 +345,6 @@ For this tutorial, we are going to create a (very basic) resume homepage.
 </p>
 
 </section>
-<section id="slide-orgheadline19">
-<h4 id="orgheadline19"><span class="section-number-4">4.1.1</span> Using the Command Line</h4>
-</section>
 <section>
 <p>
 Create the remote
@@ -364,6 +361,9 @@ Sync locally (set a local to track the remote)
 <img src="./img/new_repo_setup_gh.png">
 
 </section>
+<section id="slide-orgheadline19">
+<h4 id="orgheadline19"><span class="section-number-4">4.1.1</span> Using the Command Line</h4>
+</section>
 <section>
 <p>
 Initialize the repository
@@ -374,18 +374,6 @@ Initialize the repository
 <pre  class="src src-bash">$ git init
 
 Initialized empty Git repository<span style="color: #F0DFAF; font-weight: bold;"> in</span> /home/enrique/Documents/courses/resume
-</pre>
-</div>
-
-</section>
-<section>
-<p>
-Track the remote
-</p>
-
-<div class="org-src-container">
-
-<pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
 </pre>
 </div>
 
@@ -404,6 +392,18 @@ Add files to the repository
 </section>
 <section>
 <p>
+Track the remote
+</p>
+
+<div class="org-src-container">
+
+<pre  class="src src-bash">$ git remote add origin https://github.com/emanjavacas/resume.git
+</pre>
+</div>
+
+</section>
+<section>
+<p>
 Commit changes to the remote
 </p>
 
@@ -413,17 +413,22 @@ Commit changes to the remote
 </pre>
 </div>
 
-
 </section>
 <section id="slide-orgheadline20">
 <h4 id="orgheadline20"><span class="section-number-4">4.1.2</span> Using GitHub Desktop</h4>
 </section>
 <section>
-<img src="./img/new_repo_gh1.png">
+<p>
+Clone the remote
+</p>
+<img src="./img/clone_remote_gh.png">
 
 </section>
 <section>
-<img src="./img/new_repo_gh2.png">
+<p>
+Alternatively, click on Set up in Desktop (same effect)
+</p>
+<img src="./img/new_repo_setup_gh.png">
 
 </section>
 <section id="slide-orgheadline21">
@@ -437,7 +442,8 @@ Commit changes to the remote
 
 </ul></li>
 <li class="fragment roll-in">Create a remote repository (github.com)</li>
-<li class="fragment roll-in">Set the local to track the remote</li>
+<li class="fragment roll-in">Create a local and set it to track the remote (i.e. clone the remote)</li>
+<li class="fragment roll-in">Populate the local repository with the template files</li>
 
 </ul>
 
