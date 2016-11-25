@@ -24,11 +24,11 @@
 
 - And these are [[https://www.github.com/emanjavacas/git-course][materials for today]].
 
-** Get git
+** Get ~git~
 
 Follow the instructions for your OS [[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git][here]].
 
-*** [Optionally/Alternatively] install a Git client 
+*** Optionally install a ~Git client~
 
  See [[https://www.github.com/emanjavacas/git-course][Materials for the course]] for links to different possibilities.
 
@@ -150,8 +150,8 @@ with the guarantee that changes by different users will not automatically overwr
 *** Take-away message
 
     #+attr_reveal: :frag (roll-in)
-    - Trade-off between rigor (data-side) and easiness (UX-side).
-    - Most users are limited to one very end.
+    - Trade-off between rigor (data side) and easiness (UX side).
+    - Why be limited to one very end?
 
 ** What is not ~git~?
     
@@ -175,7 +175,7 @@ with the guarantee that changes by different users will not automatically overwr
 Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
 #+BEGIN_HTML
-<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">See <a src="https://www.github.com/emanjavacas/git-course">the repository README</a> for a glossary of terms</p>
+<p style="font-size: 0.75em; margin-top: 220px; text-align: right;">See <a href="https://www.github.com/emanjavacas/git-course">the repository README</a> for a glossary of terms</p>
 #+END_HTML
 
 # Double indent to avoid showing up in toc
@@ -205,10 +205,10 @@ Let's introduce a bit of vocabulary (Last bit of me talking alone!)
 
     Ways to change the working tree:
     #+attr_reveal: :frag (roll-in)
-     - Switch back to a previous state of the project (revert)
-     - Add a change to the current state (commit)
+     - Switch back to a previous state of the project (~revert~)
+     - Add a change to the current state (~commit~)
      - Moving to another (possibly new) branch (A.K.A. ~checkout~)
-     - Move to a "future" state of the project (e.g. pulling from remote changes)
+     - Move to a "future" state of the project (e.g. fetching remote changes)
 
 *** Commit
     A snapshot including changes to a previous state of the repository.
@@ -527,7 +527,7 @@ See which branches are there
   #+BEGIN_SRC bash
   $ git checkout master
 
-  Switched to branch 'resume'
+  Switched to branch 'master'
   #+END_SRC
 
 *** From GitHub Desktop
@@ -583,15 +583,15 @@ Compare branches
 [[./img/diff_branches.png]]
 
 #+reveal: split
-Merge target branch (resume) into receiving branch (master)
+Merge source branch (resume) into target branch (master)
 
   #+attr_reveal: :frag (roll-in)
-  - Switch to receiving branch (master)
+  - Switch to target branch (master)
     #+BEGIN_SRC bash
     git checkout master
     #+END_SRC
     
-  - Do the merge (resume gets merged into master)
+  - Do the merge ('resume' gets merged into 'master')
     #+BEGIN_SRC bash
     $ git merge resume
 
@@ -654,38 +654,33 @@ Now you are going to merge a pull request that your colleague is going to submit
 
 *** Your turn
 #+reveal: split
-Fork your colleague's project
-
-#+BEGIN_HTML
-<img src="./img/fork_gh.png" class="stretch">
-#+END_HTML
-
-#+reveal: split
-Clone it locally
-
-#+BEGIN_HTML
-<img src="./img/clone_fork_gh.png" class="stretch">
-#+END_HTML
-
-#+reveal: split
-Introduce (conspicuous) typos in your local index.html file (push them too)
+Introduce (evident) typos in your local index.html file (push them too)
 #+BEGIN_HTML
 <img src="./img/typos_gh.png" class="stretch">
 #+END_HTML
 
 #+reveal: split
-Pull from your colleague's upstream fork
+Fork (i.e. "copy") your colleague's project on their GitHub repository page
 
 #+BEGIN_HTML
-<img src="./img/merge_upstream.png" class="stretch">
+<img src="./img/forking_gh.png" class="stretch">
 #+END_HTML
 
 #+reveal: split
-And merge it to see the typos
+Clone the fork locally (to be able to modify the project)
 
-#+BEGIN_HTML
-<img src="./img/merge_upstream_changes.png" class="stretch">
-#+END_HTML
+# #+reveal: split
+# Pull from your colleague's main
+# #+BEGIN_HTML
+# <img src="./img/merge_upstream.png" class="stretch">
+# #+END_HTML
+
+# #+reveal: split
+# And merge it to see the typos
+
+# #+BEGIN_HTML
+# <img src="./img/merge_upstream_changes.png" class="stretch">
+# #+END_HTML
 
 #+reveal: split
 Modify the typos and commit
@@ -695,7 +690,7 @@ Modify the typos and commit
 #+END_HTML
 
 #+reveal: split
-Issue a pull request
+Issue a pull request to your colleague's repository
 
 #+BEGIN_HTML
 <img src="./img/pull_request_gh.png" class="stretch">
@@ -738,9 +733,9 @@ That was easy, but sometimes merging doesn't work automatically.
 #+reveal: split
 We are going to do the following
 #+attr_reveal: :frag (roll-in)
-- Introduce changes in our own local repository
-- Introduce conflicting changes in a branch
-- Attempt to merge (failing)
+- Introduce changes in our own repository
+- Let our colleague introduce conflicting changes into their fork
+- Attempt to merge their fork with conflicting changes (fail)
 - Solve the conflict & merge
 
 #+reveal: split
@@ -768,7 +763,16 @@ Check your colleague's incoming pull request
 #+END_HTML
 
 #+reveal: split
-To proceed you need a command line (use GitHub Desktop built-in):
+Resolving merge conflicts (two solutions)
+#+attr_reveal: :frag (roll-in)
+- Ask the pull-request issuer to solve the conflicts
+- Solve the conflicts yourself and merge
+
+#+reveal: split
+Solve the conflicts yourself and merge
+#+BEGIN_HTML
+<small>To proceed you need a command line (use GitHub Desktop built-in)</small>
+#+END_HTML
 
 #+attr_reveal: :frag (roll-in)
 - Clone your colleague's fork branch into your project
